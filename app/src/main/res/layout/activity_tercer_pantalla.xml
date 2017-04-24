@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="mx.itesm.metodosnumericos.TercerPantalla">
+
+    <Button
+        android:id="@+id/metodoCinco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:text="Metodo 5"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/metodoSeis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/metodoCinco"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="Metodo 6" />
+
+    <Button
+        android:id="@+id/metodoSiete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/metodoSeis"
+        android:layout_alignRight="@+id/metodoSeis"
+        android:layout_below="@+id/metodoSeis"
+        android:layout_marginTop="40dp"
+        android:text="Metodo 7" />
+
+    <Button
+        android:id="@+id/metodoOcho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/metodoSeis"
+        android:layout_alignStart="@+id/metodoSeis"
+        android:layout_below="@+id/metodoSiete"
+        android:layout_marginTop="43dp"
+        android:text="Metodo 8" />
+
+    <Button
+        android:id="@+id/metodoNueve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/metodoOcho"
+        android:layout_alignStart="@+id/metodoOcho"
+        android:layout_below="@+id/metodoOcho"
+        android:layout_marginTop="39dp"
+        android:text="Metodo 9" />
+
+    <ImageButton
+        android:id="@+id/regresoPantallaUno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        app:srcCompat="@android:drawable/ic_menu_revert"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
