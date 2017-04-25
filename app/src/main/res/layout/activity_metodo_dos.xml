@@ -13,10 +13,14 @@
         app:srcCompat="@android:drawable/ic_menu_revert"
         tools:layout_editor_absoluteX="41dp"
         tools:layout_editor_absoluteY="419dp"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:id="@+id/grafica"></com.github.mikephil.charting.charts.LineChart>
 </RelativeLayout>
