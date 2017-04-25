@@ -19,7 +19,7 @@ public class PrimerPantalla extends AppCompatActivity {
                 public void onClick(View v) {
                     Toast toast =  Toast.makeText(PrimerPantalla.this,"Prueba", Toast.LENGTH_LONG);
                     toast.show();
-                    Intent inti = new Intent(getBaseContext(), SegundaPantalla.class);
+                    Intent inti = new Intent(getBaseContext(), MetodoUno.class);
                     startActivity(inti);
                 }
             });
@@ -28,7 +28,7 @@ public class PrimerPantalla extends AppCompatActivity {
             botonDos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), SegundaPantalla.class);
+                    Intent inti = new Intent(getBaseContext(), MetodoDos.class);
                     startActivity(inti);
                 }
             });
@@ -37,7 +37,7 @@ public class PrimerPantalla extends AppCompatActivity {
             botonTres.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), SegundaPantalla.class);
+                    Intent inti = new Intent(getBaseContext(), MetodoTres.class);
                     startActivity(inti);
                 }
             });
@@ -46,7 +46,7 @@ public class PrimerPantalla extends AppCompatActivity {
             botonCuatro.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), SegundaPantalla.class);
+                    Intent inti = new Intent(getBaseContext(), MetodoCuatro.class);
                     startActivity(inti);
                 }
             });
@@ -55,7 +55,7 @@ public class PrimerPantalla extends AppCompatActivity {
             botonPaginaDos.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), TercerPantalla.class);
+                    Intent inti = new Intent(getBaseContext(), SegundaPantalla.class);
                     startActivity(inti);
                 }
             });

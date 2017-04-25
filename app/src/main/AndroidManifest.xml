@@ -16,9 +16,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SegundaPantalla" />
+        <activity android:name=".MetodoUno" />
         <activity android:name=".PrimerPantalla" />
-        <activity android:name=".TercerPantalla"></activity>
+        <activity android:name=".SegundaPantalla" />
+        <activity android:name=".MetodoDos" />
+        <activity android:name=".MetodoTres" />
+        <activity android:name=".MetodoCuatro" />
+        <activity android:name=".MetodoCinco" />
+        <activity android:name=".MetodoSeis" />
+        <activity android:name=".MetodoSiete" />
+        <activity android:name=".MetodoOcho" />
+        <activity android:name=".MetodoNueve"></activity>
     </application>
 
 </manifest>

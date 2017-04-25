@@ -4,68 +4,74 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class SegundaPantalla extends AppCompatActivity {
 
-    private EditText numero;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_segunda_pantalla);
 
-        ImageButton boton = (ImageButton)findViewById(R.id.regreso);
+        ImageButton back = (ImageButton)findViewById(R.id.regresoPantallaUno);
 
-        Button botonEnter = (Button)findViewById(R.id.enter);
-
-
-        boton.setOnClickListener(new OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_primer_pantlla);
-                Intent inti = new Intent(getBaseContext(), PrimerPantalla.class);
+                Intent inti = new Intent(getBaseContext(),PrimerPantalla.class);
                 startActivity(inti);
-
             }
         });
 
+        Button botonCinco = (Button)findViewById(R.id.metodoCinco);
 
-        botonEnter.setOnClickListener(new OnClickListener() {
+        Button botonSeis = (Button)findViewById(R.id.metodoSeis);
+
+        Button botonSiete = (Button)findViewById(R.id.metodoSiete);
+
+        Button botonOcho = (Button)findViewById(R.id.metodoOcho);
+
+        Button botonNueve = (Button)findViewById(R.id.metodoNueve);
+
+        botonCinco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numero = (EditText) findViewById(R.id.numero);
-                
-                Toast toast =  Toast.makeText(SegundaPantalla.this,numero.getText().toString(), Toast.LENGTH_LONG);
-                toast.show();
+                Intent inti = new Intent(getBaseContext(), MetodoCinco.class);
+                startActivity(inti);
             }
         });
 
+        botonSeis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), MetodoSeis.class);
+                startActivity(inti);
+            }
+        });
 
+        botonSiete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), MetodoSiete.class);
+                startActivity(inti);
+            }
+        });
 
+        botonOcho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), MetodoOcho.class);
+                startActivity(inti);
+            }
+        });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        botonNueve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), MetodoNueve.class);
+                startActivity(inti);
+            }
+        });
     }
 }
