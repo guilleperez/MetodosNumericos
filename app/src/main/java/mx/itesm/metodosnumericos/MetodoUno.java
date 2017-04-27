@@ -1,6 +1,7 @@
 package mx.itesm.metodosnumericos;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class MetodoUno extends Activity {
     private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
     private Integer tamano;
-
+    private TextView resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,9 @@ public class MetodoUno extends Activity {
         //Datos
         txt = (EditText)findViewById(R.id.numero);
         txtDos = (EditText)findViewById(R.id.tamano);
+        //Resultado
+        resultado = (TextView)findViewById(R.id.resultado);
+
 
         boton.setOnClickListener(new OnClickListener() {
             @Override
@@ -85,12 +90,17 @@ public class MetodoUno extends Activity {
                 cm.setA(a);
                 cm.setB(b);
 
-                String res ="";
+                String res ="[ ";
                 float[] cramer = cm.cramer();
                 for(int i=0;i<cramer.length;i++){
-                    res += cramer[i] + " ";
+                    if(i!=cramer.length-1)
+                        res += cramer[i] + " , ";
+                    else
+                        res += cramer[i];
                 }
-                Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_SHORT).show();
+                res += " ]";
+                //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
+                resultado.setText("El resultado de la operacion es\n"+res);
                 Log.d("********************** ", "RESULTADO  "  + res);
                 arreglo.clear();
                 tamano = 0;
@@ -121,6 +131,7 @@ public class MetodoUno extends Activity {
                 }
             }
         });
+
     }
 }
 
