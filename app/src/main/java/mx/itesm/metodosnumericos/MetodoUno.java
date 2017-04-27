@@ -1,71 +1,84 @@
 package mx.itesm.metodosnumericos;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MetodoUno extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private EditText numero;
+public class MetodoUno extends Activity {
+
+    private ArrayList<String> arreglo = new ArrayList<>();
+    private EditText txt;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Hide the Title bar of this activity screen
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_uno);
 
-        ImageButton boton = (ImageButton)findViewById(R.id.regreso);
-
-        Button botonEnter = (Button)findViewById(R.id.enter);
-
+        ImageButton back = (ImageButton)findViewById(R.id.back);
+        Button boton = (Button) findViewById(R.id.enter);
+        Button botonCramer = (Button)findViewById(R.id.cramerBoton);
+        //Datos
+        txt = (EditText)findViewById(R.id.numero);
 
         boton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //setContentView(R.layout.activity_primer_pantlla);
-                Intent inti = new Intent(getBaseContext(), PrimerPantalla.class);
-                startActivity(inti);
+                String getInput = txt.getText().toString();
 
+                if(getInput == null || getInput.trim().equals("")){
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
+                }else{
+                    arreglo.add(getInput);
+                    ((EditText) findViewById(R.id.numero)).setText(" ");
+                    //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
+
+
+                }
             }
         });
 
-
-        botonEnter.setOnClickListener(new OnClickListener() {
+        back.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                numero = (EditText) findViewById(R.id.numero);
-                
-                Toast toast =  Toast.makeText(MetodoUno.this,numero.getText().toString(), Toast.LENGTH_LONG);
-                toast.show();
+                Intent inti = new Intent(getBaseContext(), PrimerPantalla.class);
+                startActivity(inti);
             }
         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        botonCramer.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(),arreglo.toString(),Toast.LENGTH_SHORT).show();
+                arreglo.clear();
+            }
+        });
 
 
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

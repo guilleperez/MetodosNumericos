@@ -6,41 +6,47 @@
     android:layout_height="match_parent"
     tools:context="mx.itesm.metodosnumericos.MetodoUno">
 
-    <ImageButton
-        android:id="@+id/regreso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <EditText
         android:id="@+id/numero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="103dp"
         android:ems="10"
-        android:hint="Numero"
+        android:hint="Datos de la matriz"
         android:inputType="number"
         android:singleLine="false"
+        android:textAlignment="center"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/regreso"
-        android:layout_toEndOf="@+id/regreso" />
+        android:layout_toRightOf="@+id/back"
+        android:layout_toEndOf="@+id/back" />
 
     <Button
         android:id="@+id/enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/numero"
-        android:layout_alignRight="@+id/numero"
+        android:text="Enter"
         android:layout_below="@+id/numero"
-        android:layout_marginEnd="54dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginTop="9dp"
-        android:text="Enter" />
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:background="@mipmap/back" />
+
+    <Button
+        android:id="@+id/cramerBoton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enter"
+        android:layout_alignStart="@+id/enter"
+        android:layout_below="@+id/enter"
+        android:layout_marginTop="102dp"
+        android:text="Ok" />
 
 </RelativeLayout>

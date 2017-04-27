@@ -1,65 +1,57 @@
 package mx.itesm.metodosnumericos;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class PrimerPantalla extends AppCompatActivity {
+public class PrimerPantalla extends Activity {
 
-           protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_primer_pantalla);
+    protected void onCreate(Bundle savedInstanceState) {
 
-            Button boton = (Button)findViewById(R.id.botonUno);
-            boton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast toast =  Toast.makeText(PrimerPantalla.this,"Prueba", Toast.LENGTH_LONG);
-                    toast.show();
-                    Intent inti = new Intent(getBaseContext(), MetodoUno.class);
-                    startActivity(inti);
-                }
-            });
+        super.onCreate(savedInstanceState);
 
-            Button botonDos = (Button)findViewById(R.id.botonDos);
-            botonDos.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), MetodoDos.class);
-                    startActivity(inti);
-                }
-            });
+        // Hide the Title bar of this activity screen
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
-            Button botonTres = (Button)findViewById(R.id.botonTres);
-            botonTres.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), MetodoTres.class);
-                    startActivity(inti);
-                }
-            });
 
-            Button botonCuatro = (Button)findViewById(R.id.botonCuatro);
-            botonCuatro.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), MetodoCuatro.class);
-                    startActivity(inti);
-                }
-            });
+        setContentView(R.layout.activity_primer_pantalla);
 
-            Button botonPaginaDos = (Button)findViewById(R.id.paginaDos);
-            botonPaginaDos.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent inti = new Intent(getBaseContext(), SegundaPantalla.class);
-                    startActivity(inti);
-                }
-            });
+        Button boton = (Button)findViewById(R.id.botonUno);
+        boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*Toast toast =  Toast.makeText(PrimerPantalla.this,"Prueba", Toast.LENGTH_LONG);
+                toast.show();*/
+                Intent inti = new Intent(getBaseContext(), MetodoUno.class);
+                startActivity(inti);
+            }
+        });
 
-        }
+        Button botonDos = (Button)findViewById(R.id.botonDos);
+        botonDos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), MetodoDos.class);
+                startActivity(inti);
+            }
+        });
+
+        Button botonTres = (Button)findViewById(R.id.botonTres);
+        botonTres.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), MetodoTres.class);
+                startActivity(inti);
+            }
+        });
+
+
+    }
 }
