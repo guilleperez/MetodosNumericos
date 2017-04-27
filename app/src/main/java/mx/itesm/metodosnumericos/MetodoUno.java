@@ -16,7 +16,8 @@ import java.util.ArrayList;
 public class MetodoUno extends Activity {
 
     private ArrayList<String> arreglo = new ArrayList<>();
-    private EditText txt;
+    private EditText txt, txtDos;
+    private Integer tamano;
 
 
     @Override
@@ -29,8 +30,10 @@ public class MetodoUno extends Activity {
         ImageButton back = (ImageButton)findViewById(R.id.back);
         Button boton = (Button) findViewById(R.id.enter);
         Button botonCramer = (Button)findViewById(R.id.cramerBoton);
+        Button botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos
         txt = (EditText)findViewById(R.id.numero);
+        txtDos = (EditText)findViewById(R.id.tamano);
 
         boton.setOnClickListener(new OnClickListener() {
             @Override
@@ -43,8 +46,6 @@ public class MetodoUno extends Activity {
                     arreglo.add(getInput);
                     ((EditText) findViewById(R.id.numero)).setText(" ");
                     //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
-
-
                 }
             }
         });
@@ -65,8 +66,20 @@ public class MetodoUno extends Activity {
             }
         });
 
+        botonTamano.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getInput = txtDos.getText().toString();
+                tamano = Integer.parseInt(getInput);
 
-
+                if(getInput == null || getInput.trim().equals("")){
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
+                }else{
+                    ((EditText) findViewById(R.id.numero)).setText(" ");
+                    //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 }
 

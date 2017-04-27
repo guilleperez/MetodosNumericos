@@ -11,15 +11,15 @@
         android:id="@+id/numero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="103dp"
+        android:layout_marginTop="101dp"
         android:ems="10"
         android:hint="Datos de la matriz"
         android:inputType="number"
         android:singleLine="false"
         android:textAlignment="center"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/back"
-        android:layout_toEndOf="@+id/back" />
+        android:layout_below="@+id/tamano"
+        android:layout_alignLeft="@+id/tamano"
+        android:layout_alignStart="@+id/tamano" />
 
     <Button
         android:id="@+id/enter"
@@ -43,10 +43,33 @@
         android:id="@+id/cramerBoton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Ok"
+        android:layout_alignTop="@+id/back"
+        android:layout_alignLeft="@+id/enter"
+        android:layout_alignStart="@+id/enter" />
+
+    <EditText
+        android:id="@+id/tamano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="103dp"
+        android:layout_toEndOf="@+id/back"
+        android:layout_toRightOf="@+id/back"
+        android:ems="10"
+        android:hint="Tamaño de la matriz"
+        android:inputType="number"
+        android:singleLine="false"
+        android:textAlignment="center" />
+    <Button
+        android:id="@+id/enterTamano"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/tamano"
         android:layout_alignLeft="@+id/enter"
         android:layout_alignStart="@+id/enter"
-        android:layout_below="@+id/enter"
-        android:layout_marginTop="102dp"
-        android:text="Ok" />
+        android:layout_marginTop="12dp" />
+
 
 </RelativeLayout>
