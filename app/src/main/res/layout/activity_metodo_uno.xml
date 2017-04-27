@@ -11,15 +11,15 @@
         android:id="@+id/numero"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tamano"
+        android:layout_alignStart="@+id/tamano"
+        android:layout_below="@+id/tamano"
         android:layout_marginTop="101dp"
         android:ems="10"
         android:hint="Datos de la matriz"
-        android:inputType="number"
+        android:inputType="numberSigned"
         android:singleLine="false"
-        android:textAlignment="center"
-        android:layout_below="@+id/tamano"
-        android:layout_alignLeft="@+id/tamano"
-        android:layout_alignStart="@+id/tamano" />
+        android:textAlignment="center" />
 
     <Button
         android:id="@+id/enter"

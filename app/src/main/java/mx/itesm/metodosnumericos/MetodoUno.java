@@ -29,8 +29,8 @@ public class MetodoUno extends Activity {
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
         Button boton = (Button) findViewById(R.id.enter);
-        Button botonCramer = (Button)findViewById(R.id.cramerBoton);
-        Button botonTamano = (Button)findViewById(R.id.enterTamano);
+        final Button botonCramer = (Button)findViewById(R.id.cramerBoton);
+        final Button botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos
         txt = (EditText)findViewById(R.id.numero);
         txtDos = (EditText)findViewById(R.id.tamano);
@@ -43,7 +43,7 @@ public class MetodoUno extends Activity {
                 if(getInput == null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
                 }else{
-                    arreglo.add(getInput);
+                    arreglo.add(getInput.trim());
                     ((EditText) findViewById(R.id.numero)).setText(" ");
                     //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
                 }
@@ -63,20 +63,31 @@ public class MetodoUno extends Activity {
             public void onClick(View v) {
                 Toast.makeText(getBaseContext(),arreglo.toString(),Toast.LENGTH_SHORT).show();
                 arreglo.clear();
-            }
+                tamano = 0;
+                if(botonTamano.isEnabled()==false) {
+                    botonTamano.setEnabled(true);
+                }
+
+                }
         });
 
         botonTamano.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getInput = txtDos.getText().toString();
+                String getInput = txtDos.getText().toString().trim();
                 tamano = Integer.parseInt(getInput);
 
                 if(getInput == null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
+                }else if (getInput.trim().equals("0")){
+                    ((EditText) findViewById(R.id.tamano)).setText(" ");
+                    Toast.makeText(getBaseContext(),"La matriz no puede ser de 0x0", Toast.LENGTH_LONG).show();
                 }else{
-                    ((EditText) findViewById(R.id.numero)).setText(" ");
-                    //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
+                    ((EditText) findViewById(R.id.tamano)).setText(" ");
+                    Toast.makeText(getBaseContext(), getInput,Toast.LENGTH_LONG).show();
+                    if(botonTamano.isEnabled()) {
+                        botonTamano.setEnabled(false);
+                    }
                 }
             }
         });
