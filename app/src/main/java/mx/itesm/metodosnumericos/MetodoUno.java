@@ -21,8 +21,9 @@ public class MetodoUno extends Activity {
 
     private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
-    private Integer tamano;
+    private Integer tamano, basta = 0;
     private TextView resultado;
+    private Button botonTamano,botonCramer,boton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +33,9 @@ public class MetodoUno extends Activity {
         setContentView(R.layout.activity_metodo_uno);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
-        Button boton = (Button) findViewById(R.id.enter);
-        final Button botonCramer = (Button)findViewById(R.id.cramerBoton);
-        final Button botonTamano = (Button)findViewById(R.id.enterTamano);
+        boton = (Button) findViewById(R.id.enter);
+        botonCramer = (Button)findViewById(R.id.cramerBoton);
+        botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos
         txt = (EditText)findViewById(R.id.numero);
         txtDos = (EditText)findViewById(R.id.tamano);
@@ -49,11 +50,16 @@ public class MetodoUno extends Activity {
 
                 if(getInput == null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
+                }else if(basta == (tamano+1) * tamano){
+                    if(boton.isEnabled()) {
+                        boton.setEnabled(false);
+                    }
                 }else{
                     arreglo.add(getInput.trim());
+                    basta += 1;
                 }
-                    ((EditText) findViewById(R.id.numero)).setText(" ");
-                    //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
+                ((EditText) findViewById(R.id.numero)).setText(" ");
+                //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
             }
         });
 
@@ -86,7 +92,6 @@ public class MetodoUno extends Activity {
                     }
                 }
 
-
                 cm.setA(a);
                 cm.setB(b);
 
@@ -101,14 +106,17 @@ public class MetodoUno extends Activity {
                 res += " ]";
                 //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
                 resultado.setText("El resultado de la operacion es\n"+res);
+                //resultado.setText(arreglo.toString());
                 Log.d("********************** ", "RESULTADO  "  + res);
                 arreglo.clear();
                 tamano = 0;
-                if(botonTamano.isEnabled()==false) {
+                basta = 0;
+                if(botonTamano.isEnabled()==false || boton.isEnabled() == false) {
                     botonTamano.setEnabled(true);
+                    boton.setEnabled(true);
                 }
 
-                }
+            }
         });
 
         botonTamano.setOnClickListener(new OnClickListener() {
@@ -122,15 +130,19 @@ public class MetodoUno extends Activity {
                 }else if (getInput.trim().equals("0")){
                     ((EditText) findViewById(R.id.tamano)).setText(" ");
                     Toast.makeText(getBaseContext(),"La matriz no puede ser de 0x0", Toast.LENGTH_LONG).show();
-                }else{
+                }
+                else{
                     ((EditText) findViewById(R.id.tamano)).setText(" ");
-                    Toast.makeText(getBaseContext(), getInput,Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
                     }
                 }
+
             }
         });
+
+
 
     }
 }
