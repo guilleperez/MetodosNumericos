@@ -3,6 +3,7 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -12,11 +13,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MetodoUno extends Activity {
 
-    private ArrayList<String> arreglo = new ArrayList<>();
-    private EditText txt, txtDos;
+    private EditText txtDos,txt;
+    private ArrayList<String> arreglo = new ArrayList<String>();
     private Integer tamano;
 
 
@@ -44,9 +46,9 @@ public class MetodoUno extends Activity {
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
                 }else{
                     arreglo.add(getInput.trim());
+                }
                     ((EditText) findViewById(R.id.numero)).setText(" ");
                     //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
-                }
             }
         });
 
@@ -61,7 +63,35 @@ public class MetodoUno extends Activity {
         botonCramer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(),arreglo.toString(),Toast.LENGTH_SHORT).show();
+                Cramer cm = new Cramer(tamano);
+                float[] b = cm.getB();
+                float[][] a = cm.getA();
+                Log.d("********************** ", "" + tamano);
+                int y = 0;
+                int x = 0;
+                for (int i = 1; i <= arreglo.size(); i++) {
+                    if (i % (tamano+1) == 0) {
+                        b[x] = Float.parseFloat(arreglo.get(i-1));
+                        x++;
+                        y = 0;
+                    }else{
+                        a[x][y] = Float.parseFloat(arreglo.get(i-1));
+                        //Log.d("********************** ", "" + a[x][y] + " " + x + " " + y);
+                        y++;
+                    }
+                }
+
+
+                cm.setA(a);
+                cm.setB(b);
+
+                String res ="";
+                float[] cramer = cm.cramer();
+                for(int i=0;i<cramer.length;i++){
+                    res += cramer[i] + " ";
+                }
+                Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_SHORT).show();
+                Log.d("********************** ", "RESULTADO  "  + res);
                 arreglo.clear();
                 tamano = 0;
                 if(botonTamano.isEnabled()==false) {
