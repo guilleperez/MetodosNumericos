@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,8 +42,10 @@ public class MetodoUno extends Activity {
         //Datos
         txt = (EditText)findViewById(R.id.numero);
         txtDos = (EditText)findViewById(R.id.tamano);
+
         //Resultado
         resultado = (TextView)findViewById(R.id.resultado);
+
 
 
         boton.setOnClickListener(new OnClickListener() {
@@ -48,20 +53,22 @@ public class MetodoUno extends Activity {
             public void onClick(View v) {
                 String getInput = txt.getText().toString();
 
-                if(getInput == null || getInput.trim().equals("")){
+                if(getInput==null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
-                }else if(basta == (tamano+1) * tamano){
+                }else if(basta >= (tamano+1) * tamano){
                     if(boton.isEnabled()) {
                         boton.setEnabled(false);
                     }
                 }else{
+                    ((EditText) findViewById(R.id.numero)).setText(" ");
                     arreglo.add(getInput.trim());
                     basta += 1;
                 }
-                ((EditText) findViewById(R.id.numero)).setText(" ");
+
                 //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
             }
         });
+
 
         back.setOnClickListener(new OnClickListener() {
             @Override
@@ -111,7 +118,7 @@ public class MetodoUno extends Activity {
                 arreglo.clear();
                 tamano = 0;
                 basta = 0;
-                if(botonTamano.isEnabled()==false || boton.isEnabled() == false) {
+                if(!botonTamano.isEnabled() || !boton.isEnabled()) {
                     botonTamano.setEnabled(true);
                     boton.setEnabled(true);
                 }
@@ -123,9 +130,8 @@ public class MetodoUno extends Activity {
             @Override
             public void onClick(View v) {
                 String getInput = txtDos.getText().toString().trim();
-                tamano = Integer.parseInt(getInput);
 
-                if(getInput == null || getInput.trim().equals("")){
+                if(getInput == null||getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
                 }else if (getInput.trim().equals("0")){
                     ((EditText) findViewById(R.id.tamano)).setText(" ");
@@ -137,7 +143,9 @@ public class MetodoUno extends Activity {
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
                     }
+                    tamano = Integer.parseInt(getInput);
                 }
+
 
             }
         });
