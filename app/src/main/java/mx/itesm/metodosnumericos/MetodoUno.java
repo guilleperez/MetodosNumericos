@@ -45,25 +45,31 @@ public class MetodoUno extends Activity {
 
         //Resultado
         resultado = (TextView)findViewById(R.id.resultado);
-
-
+        if(botonTamano.isEnabled() && boton.isEnabled()){
+            if (botonCramer.isEnabled()){
+                botonCramer.setEnabled(false);
+            }
+        }
 
         boton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 String getInput = txt.getText().toString();
-
                 if(getInput==null || getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
-                }else if(basta >= (tamano+1) * tamano){
-                    if(boton.isEnabled()) {
-                        boton.setEnabled(false);
-                    }
-                }else{
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
+                }
+                else{
                     ((EditText) findViewById(R.id.numero)).setText(" ");
                     arreglo.add(getInput.trim());
                     basta += 1;
+                    if(basta >= (tamano+1) * tamano){
+                        if(boton.isEnabled()|| !botonCramer.isEnabled()) {
+                            boton.setEnabled(false);
+                            botonCramer.setEnabled(true);
+                        }
+                    }
                 }
+
 
                 //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
             }
@@ -122,6 +128,9 @@ public class MetodoUno extends Activity {
                     botonTamano.setEnabled(true);
                     boton.setEnabled(true);
                 }
+                if(botonCramer.isEnabled()){
+                    botonCramer.setEnabled(false);
+                }
 
             }
         });
@@ -132,10 +141,10 @@ public class MetodoUno extends Activity {
                 String getInput = txtDos.getText().toString().trim();
 
                 if(getInput == null||getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_LONG).show();
-                }else if (getInput.trim().equals("0")){
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
+                }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
                     ((EditText) findViewById(R.id.tamano)).setText(" ");
-                    Toast.makeText(getBaseContext(),"La matriz no puede ser de 0x0", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
                 }
                 else{
                     ((EditText) findViewById(R.id.tamano)).setText(" ");
