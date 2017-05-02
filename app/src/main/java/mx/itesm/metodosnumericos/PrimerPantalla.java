@@ -19,8 +19,6 @@ public class PrimerPantalla extends Activity {
 
         // Hide the Title bar of this activity screen
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-
-
         setContentView(R.layout.activity_primer_pantalla);
 
         Button boton = (Button)findViewById(R.id.botonUno);

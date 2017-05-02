@@ -17,4 +17,16 @@
         android:text="Incio"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="325dp" />
+
+    <TextView
+        android:id="@+id/tamanoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/inicio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="146dp"
+        android:layout_marginLeft="129dp"
+        android:layout_marginStart="129dp"
+        android:text="TextView" />
 </RelativeLayout>

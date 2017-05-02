@@ -1,12 +1,8 @@
 package mx.itesm.metodosnumericos;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MetodoUno extends Activity {
 
@@ -36,13 +31,12 @@ public class MetodoUno extends Activity {
         setContentView(R.layout.activity_metodo_uno);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
-        boton = (Button) findViewById(R.id.enter);
+        boton = (Button) findViewById(R.id.tamanoButton);
         botonCramer = (Button)findViewById(R.id.cramerBoton);
         botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos
-        txt = (EditText)findViewById(R.id.numero);
+        txt = (EditText)findViewById(R.id.lista);
         txtDos = (EditText)findViewById(R.id.tamano);
-
         //Resultado
         resultado = (TextView)findViewById(R.id.resultado);
         if(botonTamano.isEnabled() && boton.isEnabled()){
@@ -59,7 +53,7 @@ public class MetodoUno extends Activity {
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    ((EditText) findViewById(R.id.numero)).setText(" ");
+                    ((EditText) findViewById(R.id.lista)).setText(" ");
                     arreglo.add(getInput.trim());
                     basta += 1;
                     if(basta >= (tamano+1) * tamano){
@@ -87,10 +81,10 @@ public class MetodoUno extends Activity {
         botonCramer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cramer cm = new Cramer(tamano);
-                float[] b = cm.getB();
-                float[][] a = cm.getA();
-                Log.d("********************** ", "" + tamano);
+                Cramer cm = new Cramer();
+                float[][] a = new float[tamano][tamano];
+                float[] b  = new float[tamano];
+
                 int y = 0;
                 int x = 0;
                 for (int i = 1; i <= arreglo.size(); i++) {
@@ -105,22 +99,23 @@ public class MetodoUno extends Activity {
                     }
                 }
 
-                cm.setA(a);
-                cm.setB(b);
 
                 String res ="[ ";
-                float[] cramer = cm.cramer();
-                for(int i=0;i<cramer.length;i++){
-                    if(i!=cramer.length-1)
-                        res += cramer[i] + " , ";
-                    else
-                        res += cramer[i];
+                float[] cramer = cm.cramer(a,b);
+                if(cramer != null){
+                    for(int i=0;i<cramer.length;i++){
+                        if(i!=cramer.length-1)
+                            res += cramer[i] + " , ";
+                        else
+                            res += cramer[i];
+                    }
+                    res += " ]";
                 }
-                res += " ]";
+
                 //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
                 resultado.setText("El resultado de la operacion es\n"+res);
                 //resultado.setText(arreglo.toString());
-                Log.d("********************** ", "RESULTADO  "  + res);
+                //Log.d("********************** ", "RESULTADO  "  + res);
                 arreglo.clear();
                 tamano = 0;
                 basta = 0;
@@ -139,6 +134,7 @@ public class MetodoUno extends Activity {
             @Override
             public void onClick(View v) {
                 String getInput = txtDos.getText().toString().trim();
+                tamano = Integer.parseInt(getInput);
 
                 if(getInput == null||getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
@@ -154,7 +150,6 @@ public class MetodoUno extends Activity {
                     }
                     tamano = Integer.parseInt(getInput);
                 }
-
 
             }
         });
