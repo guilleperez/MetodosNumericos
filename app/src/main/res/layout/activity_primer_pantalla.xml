@@ -11,9 +11,9 @@
     <Button
         android:id="@+id/botonUno"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_column="1"
-        android:layout_marginTop="61dp"
+        android:layout_marginTop="32dp"
         android:layout_row="12"
         android:layout_weight="1"
         android:backgroundTint="@android:color/darker_gray"
@@ -21,40 +21,62 @@
         tools:layout_editor_absoluteX="145dp"
         tools:layout_editor_absoluteY="124dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/botonCinco"
+        android:layout_alignStart="@+id/botonCinco" />
 
     <Button
         android:id="@+id/botonDos"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/botonUno"
-        android:layout_alignStart="@+id/botonUno"
-        android:layout_below="@+id/botonUno"
-        android:layout_marginTop="64dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="Gauss Seidel" />
+        android:text="Gauss Seidel"
+        android:layout_below="@+id/botonUno"
+        android:layout_alignLeft="@+id/botonUno"
+        android:layout_alignStart="@+id/botonUno" />
 
     <Button
         android:id="@+id/botonTres"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/botonDos"
-        android:layout_alignStart="@+id/botonDos"
-        android:layout_below="@+id/botonDos"
-        android:layout_marginTop="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="Gauss" />
+        android:text="Gauss"
+        android:layout_below="@+id/botonDos"
+        android:layout_alignLeft="@+id/botonDos"
+        android:layout_alignStart="@+id/botonDos" />
 
 
     <Button
         android:id="@+id/botonCuatro"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/botonTres"
-        android:layout_alignStart="@+id/botonTres"
-        android:layout_below="@+id/botonTres"
-        android:layout_marginTop="36dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="21dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="New Raphson" />
+        android:text="New Raphson"
+        android:layout_below="@+id/botonTres"
+        android:layout_alignLeft="@+id/botonTres"
+        android:layout_alignStart="@+id/botonTres" />
+
+    <Button
+        android:id="@+id/botonCinco"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/botonSeis"
+        android:layout_alignStart="@+id/botonSeis"
+        android:layout_below="@+id/botonCuatro"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="Cruz" />
+
+    <Button
+        android:id="@+id/botonSeis"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/botonCinco"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="Azul" />
 
 </RelativeLayout>

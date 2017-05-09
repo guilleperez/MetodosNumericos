@@ -59,6 +59,24 @@ public class PrimerPantalla extends Activity {
             }
         });
 
+        Button botonCinco = (Button)findViewById(R.id.botonCinco);
+        botonCinco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti  = new Intent(getBaseContext(), MetodoCinco.class);
+                startActivity(inti);
+            }
+        });
+
+        Button botonSeis = (Button)findViewById(R.id.botonSeis);
+        botonSeis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti  = new Intent(getBaseContext(), MetodoSeis.class);
+                startActivity(inti);
+            }
+        });
+
 
     }
 }

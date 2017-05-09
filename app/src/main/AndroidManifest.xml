@@ -21,10 +21,8 @@
         <activity android:name=".MetodoDos" />
         <activity android:name=".MetodoTres" />
         <activity android:name=".NewRaphsonPantalla" />
-        <activity
-            android:name=".MetodoCuatro"
-            android:label="@string/title_activity_metodo_cuatro"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".MetodoCinco" />
+        <activity android:name=".MetodoSeis"></activity>
     </application>
 
 </manifest>

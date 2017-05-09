@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class GaussJordan {
 
-    public GaussJordan(){
+  /*  public GaussJordan(){
 
     }
 
@@ -54,6 +54,6 @@ public class GaussJordan {
         GaussResult.agregarMatriz(matriz);
 
         salida.setDatos(mat);
-return salida;
+return salida;*/
 }
 
