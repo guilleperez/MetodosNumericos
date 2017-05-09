@@ -30,14 +30,14 @@ public class MetodoTres extends Activity {
         setContentView(R.layout.activity_metodo_tres);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
-        botonMatriz = (Button) findViewById(R.id.listaEnter);
+        botonMatriz = (Button) findViewById(R.id.matrizGJ);
         botonGauss = (Button)findViewById(R.id.gaussBoton);
         botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos
-        txt = (EditText)findViewById(R.id.lista);
-        txtDos = (EditText)findViewById(R.id.tamano);
+        txt = (EditText)findViewById(R.id.matrizzGJ);
+        txtDos = (EditText)findViewById(R.id.tamanoGJ);
         //Resultado
-        resultado = (TextView)findViewById(R.id.resultado);
+        resultado = (TextView)findViewById(R.id.resultadoGJ);
         if(botonTamano.isEnabled() && botonMatriz.isEnabled()){
             if (botonGauss.isEnabled()){
                 botonGauss.setEnabled(false);
@@ -52,7 +52,7 @@ public class MetodoTres extends Activity {
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    ((EditText) findViewById(R.id.lista)).setText(" ");
+                    ((EditText) findViewById(R.id.matrizzGJ)).setText(" ");
                     arreglo.add(getInput.trim());
                     basta += 1;
                     if(basta >= (tamano+1) * tamano){
@@ -104,11 +104,11 @@ public class MetodoTres extends Activity {
                 if(getInput == null||getInput.equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
                 }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
-                    ((EditText) findViewById(R.id.tamano)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
                     Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
                 }
                 else{
-                    ((EditText) findViewById(R.id.tamano)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
                     Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);

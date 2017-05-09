@@ -11,19 +11,19 @@
         android:id="@+id/enterTamano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/listaEnter"
-        android:layout_alignStart="@+id/listaEnter"
-        android:layout_below="@+id/tamano"
+        android:layout_alignLeft="@+id/matrizGJ"
+        android:layout_alignStart="@+id/matrizGJ"
+        android:layout_below="@+id/tamanoGJ"
         android:layout_marginTop="12dp"
         android:text="Enter" />
 
     <EditText
-        android:id="@+id/lista"
+        android:id="@+id/matrizzGJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tamano"
-        android:layout_alignStart="@+id/tamano"
-        android:layout_below="@+id/tamano"
+        android:layout_alignLeft="@+id/tamanoGJ"
+        android:layout_alignStart="@+id/tamanoGJ"
+        android:layout_below="@+id/tamanoGJ"
         android:layout_marginTop="101dp"
         android:ems="10"
         android:hint="Datos de la matriz"
@@ -32,11 +32,11 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/listaEnter"
+        android:id="@+id/matrizGJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
-        android:layout_below="@+id/lista"
+        android:layout_below="@+id/matrizzGJ"
         android:layout_centerHorizontal="true" />
 
     <ImageButton
@@ -55,11 +55,11 @@
         android:layout_height="wrap_content"
         android:text="Ok"
         android:layout_alignTop="@+id/back"
-        android:layout_alignLeft="@+id/listaEnter"
-        android:layout_alignStart="@+id/listaEnter" />
+        android:layout_alignLeft="@+id/matrizGJ"
+        android:layout_alignStart="@+id/matrizGJ" />
 
     <EditText
-        android:id="@+id/tamano"
+        android:id="@+id/tamanoGJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -73,10 +73,10 @@
         android:textAlignment="center" />
 
     <TextView
-        android:id="@+id/resultado"
+        android:id="@+id/resultadoGJ"
         android:layout_width="250dp"
         android:layout_height="85dp"
-        android:layout_below="@+id/listaEnter"
+        android:layout_below="@+id/matrizGJ"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20sp" />

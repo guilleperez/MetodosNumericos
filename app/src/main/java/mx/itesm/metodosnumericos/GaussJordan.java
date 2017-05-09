@@ -9,51 +9,48 @@ import java.util.ArrayList;
 
 public class GaussJordan {
 
-  /*  public GaussJordan(){
+    public GaussJordan(){
 
     }
 
-    public Float[][] calcular(Float[][] G){
+    public Float[][] calcular(Float[][] G) {
         //Matriz salida = matriz;
-        //int col = 0;
+        int col = 0;
         //ArrayList<ArrayList<Float>> mat = matriz.getDatos();
-        ArrayList<Float> temp;
+        Float[] temp;
+        Float[][] g = G;
 
-        for (int y = 0; y < G[1].length; y++) {
-            for (int x = 0; x < G[1].length ; x++) {
-                while (mat.get(y).get(col) == 0) {
-                    temp = mat.get(y);
-                    mat.set(y, mat.get(y + 1));
-                    mat.set(y + 1, temp);
+        for (int y = 0; y < G.length; y++) {
+            for (int x = 0; x < G.length; x++) {
+                while (g[y][col] == 0) {
+                    temp = g[y];
+                    g[y] = g[y + 1];
+                    g[y + 1] = temp;
                 }
 
-            if (mat.get(y).get(col) != 1) {
-                ArrayList<Float> valores = mat.get(y);
-                float valor;
-                for (int i = valores.size() - 1; i >= 0; i--) {
-                    valor = valores.get(i) / valores.get(col);
-                    valores.set(i, valor);
+                if (g[y][col] != 1) {
+                    Float[] valores = g[y];
+                    float valor;
+                    for (int i = valores.length - 1; i >= 0; i--) {
+                        valor = valores[i] / valores[col];
+                        valores[i] = valor;
+                    }
+                }
+
+                if (x != col) {
+                    float valor;
+                    Float[] valores = g[y];
+                    float pivote = g[x][col];
+                    for (int i = valores.length - 1; i >= 0; i--) {
+                        valor = (valores[i] * (-pivote) + g[x][i]);
+                        g[x][i] =  valor;
+                    }
                 }
             }
-
-            if (x != col) {
-                float valor;
-                ArrayList<Float> valores = mat.get(y);
-                float pivote = mat.get(x).get(col);
-                for (int i = valores.size() - 1; i >= 0; i--) {
-                    valor = (valores.get(i) * (-pivote) + mat.get(x).get(i));
-                    mat.get(x).set(i, valor);
-                }
-            }
+            col++;
         }
-        col++;
-    }
-        System.out.println("Matriz FINAL: " + mat.toString());
-        GaussResult.agregarTexto("El resultado de la matriz aplicando el método de" +
-                "\nGauss-Jordan es: ");
-        GaussResult.agregarMatriz(matriz);
 
-        salida.setDatos(mat);
-return salida;*/
+        return g;
+    }
 }
 
