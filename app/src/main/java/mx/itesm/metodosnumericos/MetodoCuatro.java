@@ -1,55 +1,64 @@
 package mx.itesm.metodosnumericos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class MetodoUno extends Activity {
+public class MetodoCuatro extends AppCompatActivity {
 
-    private EditText txtDos,txt;
+    private EditText tamanoTxt;
+    //private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
     private Integer tamano, basta = 0;
-    private TextView resultado;
-    private Button botonTamano,botonCramer,boton;
+    private TextView resultado, listaTxt;
+    private Button botonTamano,botonJordan,boton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Hide the Title bar of this activity screen
+        setContentView(R.layout.activity_metodo_cuatro);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_metodo_uno);
+        //dibujoMatriz = new TableLayout(this);
+        tamanoTxt = (EditText) findViewById(R.id.tamano);
+        //espacioMatriz = (RelativeLayout) findViewById(R.id.matriz);
+        tamano = 0;
+        //hayMatriz = false;
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
         boton = (Button) findViewById(R.id.listaEnter);
-        botonCramer = (Button)findViewById(R.id.cramerBoton);
+        botonJordan = (Button)findViewById(R.id.cramerBoton);
         botonTamano = (Button)findViewById(R.id.enterTamano);
+
         //Datos
-        txt = (EditText)findViewById(R.id.lista);
-        txtDos = (EditText)findViewById(R.id.tamano);
+        listaTxt = (EditText)findViewById(R.id.lista);
+        tamanoTxt = (EditText)findViewById(R.id.tamano);
+
         //Resultado
         resultado = (TextView)findViewById(R.id.resultado);
         if(botonTamano.isEnabled() && boton.isEnabled()){
-            if (botonCramer.isEnabled()){
-                botonCramer.setEnabled(false);
+            if (botonJordan.isEnabled()){
+                botonJordan.setEnabled(false);
             }
         }
 
-        boton.setOnClickListener(new OnClickListener() {
+        boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getInput = txt.getText().toString();
+                String getInput = listaTxt.getText().toString();
                 if(getInput==null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
                 }
@@ -58,9 +67,9 @@ public class MetodoUno extends Activity {
                     arreglo.add(getInput.trim());
                     basta += 1;
                     if(basta >= (tamano+1) * tamano){
-                        if(boton.isEnabled()|| !botonCramer.isEnabled()) {
+                        if(boton.isEnabled()|| !botonJordan.isEnabled()) {
                             boton.setEnabled(false);
-                            botonCramer.setEnabled(true);
+                            botonJordan.setEnabled(true);
                         }
                     }
                 }
@@ -71,7 +80,7 @@ public class MetodoUno extends Activity {
         });
 
 
-        back.setOnClickListener(new OnClickListener() {
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent inti = new Intent(getBaseContext(), PrimerPantalla.class);
@@ -79,29 +88,25 @@ public class MetodoUno extends Activity {
             }
         });
 
-        botonCramer.setOnClickListener(new OnClickListener() {
+        botonJordan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cramer cm = new Cramer();
-                float[][] a = new float[tamano][tamano];
-                float[] b  = new float[tamano];
+                GaussJordan gj = new GaussJordan();
+                Float[][] G = new Float[tamano][tamano+1];
 
                 int y = 0;
                 int x = 0;
                 for (int i = 1; i <= arreglo.size(); i++) {
+                    G[x][y] = Float.parseFloat(arreglo.get(i-1));
                     if (i % (tamano+1) == 0) {
-                        b[x] = Float.parseFloat(arreglo.get(i-1));
                         x++;
                         y = 0;
                     }else{
-                        a[x][y] = Float.parseFloat(arreglo.get(i-1));
-                        //Log.d("********************** ", "" + a[x][y] + " " + x + " " + y);
                         y++;
                     }
                 }
 
-
-                float[] cramer = cm.cramer(a,b);
+                float[] gaussJordan = gj.calcular(M);
                 if(cramer != null){
                     String res ="[ ";
                     for(int i=0;i<cramer.length;i++){
@@ -127,14 +132,14 @@ public class MetodoUno extends Activity {
                     botonTamano.setEnabled(true);
                     boton.setEnabled(true);
                 }
-                if(botonCramer.isEnabled()){
-                    botonCramer.setEnabled(false);
+                if(botonJordan.isEnabled()){
+                    botonJordan.setEnabled(false);
                 }
 
             }
         });
 
-        botonTamano.setOnClickListener(new OnClickListener() {
+        botonTamano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String getInput = txtDos.getText().toString().trim();
@@ -161,16 +166,5 @@ public class MetodoUno extends Activity {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 

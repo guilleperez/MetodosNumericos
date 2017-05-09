@@ -1,5 +1,7 @@
 package mx.itesm.metodosnumericos;
 
+import android.util.Log;
+
 /**
  * Created by guille_pt on 26/04/2017.
  */

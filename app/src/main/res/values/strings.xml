@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MetodosNumericos</string>
     <string name="title_activity_pantalla_splash">PantallaSplash</string>
+    <string name="title_activity_metodo_cuatro">MetodoCuatro</string>
 </resources>
