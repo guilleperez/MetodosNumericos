@@ -20,6 +20,7 @@
         <activity android:name=".PrimerPantalla" />
         <activity android:name=".MetodoDos" />
         <activity android:name=".MetodoTres" />
+        <activity android:name=".NewRaphsonPantalla"></activity>
     </application>
 
 </manifest>

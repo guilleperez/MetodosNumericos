@@ -50,6 +50,15 @@ public class PrimerPantalla extends Activity {
             }
         });
 
+        Button NewRaphsonBoton = (Button)findViewById(R.id.botonCuatro);
+        NewRaphsonBoton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti  = new Intent(getBaseContext(), NewRaphsonPantalla.class);
+                startActivity(inti);
+            }
+        });
+
 
     }
 }

@@ -13,7 +13,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_column="1"
-        android:layout_marginTop="127dp"
+        android:layout_marginTop="61dp"
         android:layout_row="12"
         android:layout_weight="1"
         android:backgroundTint="@android:color/darker_gray"
@@ -38,11 +38,23 @@
         android:id="@+id/botonTres"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/botonDos"
+        android:layout_alignStart="@+id/botonDos"
+        android:layout_below="@+id/botonDos"
         android:layout_marginTop="60dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="METODO 3"
-        android:layout_below="@+id/botonDos"
-        android:layout_alignLeft="@+id/botonDos"
-        android:layout_alignStart="@+id/botonDos" />
+        android:text="Gauss" />
+
+
+    <Button
+        android:id="@+id/botonCuatro"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/botonTres"
+        android:layout_alignStart="@+id/botonTres"
+        android:layout_below="@+id/botonTres"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:text="New Raphson" />
 
 </RelativeLayout>

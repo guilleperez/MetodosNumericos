@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -38,7 +37,7 @@ public class MetodoDos extends Activity {
         ImageButton back = (ImageButton)findViewById(R.id.back);
         botonDatos = (Button) findViewById(R.id.btnMatriz);
         calcular  = (Button)findViewById(R.id.gauss_seidel);
-        botonTamano = (Button)findViewById(R.id.tamanoButton);
+        botonTamano = (Button)findViewById(R.id.listaEnter);
         botonError = (Button)findViewById(R.id.botonError);
         botonLista = (Button)findViewById(R.id.btnLista);
 

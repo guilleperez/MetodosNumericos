@@ -3,7 +3,6 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -31,7 +30,7 @@ public class MetodoUno extends Activity {
         setContentView(R.layout.activity_metodo_uno);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
-        boton = (Button) findViewById(R.id.tamanoButton);
+        boton = (Button) findViewById(R.id.listaEnter);
         botonCramer = (Button)findViewById(R.id.cramerBoton);
         botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos
@@ -153,7 +152,6 @@ public class MetodoUno extends Activity {
 
             }
         });
-
 
 
     }

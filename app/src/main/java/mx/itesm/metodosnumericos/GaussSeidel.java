@@ -77,21 +77,6 @@ public class GaussSeidel {
             }
             for (int i = 0; i < actual.length; i++){
                 abs += Math.abs((actual[i] - anterior
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         [i]) / anterior[i]);
                 //Log.d("**********************", "ABS " + (abs));
                 //Log.d("**********************", "actual[i] " + (actual[i]));

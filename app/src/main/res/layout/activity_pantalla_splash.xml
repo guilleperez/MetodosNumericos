@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteY="325dp" />
 
     <TextView
-        android:id="@+id/tamanoButton"
+        android:id="@+id/listaEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/inicio"

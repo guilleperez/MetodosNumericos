@@ -11,8 +11,8 @@
         android:id="@+id/enterTamano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/tamanoButton"
-        android:layout_alignStart="@+id/tamanoButton"
+        android:layout_alignLeft="@+id/listaEnter"
+        android:layout_alignStart="@+id/listaEnter"
         android:layout_below="@+id/tamano"
         android:layout_marginTop="12dp"
         android:text="Enter" />
@@ -32,7 +32,7 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/tamanoButton"
+        android:id="@+id/listaEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
@@ -55,8 +55,8 @@
         android:layout_height="wrap_content"
         android:text="Ok"
         android:layout_alignTop="@+id/back"
-        android:layout_alignLeft="@+id/tamanoButton"
-        android:layout_alignStart="@+id/tamanoButton" />
+        android:layout_alignLeft="@+id/listaEnter"
+        android:layout_alignStart="@+id/listaEnter" />
 
     <EditText
         android:id="@+id/tamano"
@@ -76,7 +76,7 @@
         android:id="@+id/resultado"
         android:layout_width="250dp"
         android:layout_height="85dp"
-        android:layout_below="@+id/tamanoButton"
+        android:layout_below="@+id/listaEnter"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20sp" />
