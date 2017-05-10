@@ -11,8 +11,8 @@
         android:id="@+id/enterTamano"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/matrizGJ"
-        android:layout_alignStart="@+id/matrizGJ"
+        android:layout_alignLeft="@+id/matrizGauss"
+        android:layout_alignStart="@+id/matrizGauss"
         android:layout_below="@+id/tamanoGJ"
         android:layout_marginTop="12dp"
         android:text="Enter" />
@@ -32,7 +32,7 @@
         android:textAlignment="center" />
 
     <Button
-        android:id="@+id/matrizGJ"
+        android:id="@+id/matrizGauss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
@@ -55,28 +55,28 @@
         android:layout_height="wrap_content"
         android:text="Ok"
         android:layout_alignTop="@+id/back"
-        android:layout_alignLeft="@+id/matrizGJ"
-        android:layout_alignStart="@+id/matrizGJ" />
+        android:layout_alignLeft="@+id/matrizGauss"
+        android:layout_alignStart="@+id/matrizGauss" />
 
     <EditText
         android:id="@+id/tamanoGJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="103dp"
-        android:layout_toEndOf="@+id/back"
-        android:layout_toRightOf="@+id/back"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="Tamaño de la matriz"
         android:inputType="number"
         android:singleLine="false"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/back"
+        android:layout_toEndOf="@+id/back" />
 
     <TextView
         android:id="@+id/resultadoGJ"
         android:layout_width="250dp"
-        android:layout_height="85dp"
-        android:layout_below="@+id/matrizGJ"
+        android:layout_height="150dp"
+        android:layout_below="@+id/matrizGauss"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20sp" />

@@ -30,7 +30,7 @@ public class MetodoUno extends Activity {
         setContentView(R.layout.activity_metodo_uno);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
-        boton = (Button) findViewById(R.id.matrizGJ);
+        boton = (Button) findViewById(R.id.matrizGauss);
         botonCramer = (Button)findViewById(R.id.cramerBoton);
         botonTamano = (Button)findViewById(R.id.enterTamano);
         //Datos

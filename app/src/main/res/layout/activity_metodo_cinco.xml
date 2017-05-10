@@ -11,8 +11,8 @@
         android:id="@+id/enterTamGJ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/matrizGJ"
-        android:layout_alignStart="@+id/matrizGJ"
+        android:layout_alignLeft="@+id/matrizGauss"
+        android:layout_alignStart="@+id/matrizGauss"
         android:layout_below="@+id/tamanoGJ"
         android:layout_marginTop="12dp"
         android:text="Enter" />
@@ -32,7 +32,7 @@
         android:layout_alignStart="@+id/tamanoGJ" />
 
     <Button
-        android:id="@+id/matrizGJ"
+        android:id="@+id/matrizGauss"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
@@ -53,8 +53,8 @@
         android:id="@+id/gaussJordanBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/matrizGJ"
-        android:layout_alignStart="@+id/matrizGJ"
+        android:layout_alignLeft="@+id/matrizGauss"
+        android:layout_alignStart="@+id/matrizGauss"
         android:layout_alignTop="@+id/back"
         android:text="Ok" />
 
@@ -77,7 +77,7 @@
         android:layout_height="135dp"
         android:textAlignment="center"
         android:textSize="15sp"
-        android:layout_below="@+id/matrizGJ"
+        android:layout_below="@+id/matrizGauss"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -94,6 +94,16 @@
         android:layout_alignStart="@+id/errButtonBr"
         android:layout_marginTop="31dp" />
 
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="44dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:background="@mipmap/back" />
+
     <Button
         android:id="@+id/errButtonBr"
         android:layout_width="80dp"
@@ -106,9 +116,8 @@
         android:id="@+id/bairstowButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="17dp"
         android:text="Ok"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/resultadoBr"
         android:layout_alignLeft="@+id/EcButton"
         android:layout_alignStart="@+id/EcButton" />
 </RelativeLayout>

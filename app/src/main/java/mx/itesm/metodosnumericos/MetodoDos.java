@@ -37,7 +37,7 @@ public class MetodoDos extends Activity {
         ImageButton back = (ImageButton)findViewById(R.id.back);
         botonDatos = (Button) findViewById(R.id.btnMatriz);
         calcular  = (Button)findViewById(R.id.gauss_seidel);
-        botonTamano = (Button)findViewById(R.id.matrizGJ);
+        botonTamano = (Button)findViewById(R.id.matrizGauss);
         botonError = (Button)findViewById(R.id.botonError);
         botonLista = (Button)findViewById(R.id.btnLista);
 

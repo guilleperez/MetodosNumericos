@@ -3,7 +3,6 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -36,7 +35,7 @@ public class MetodoCinco extends Activity {
         //hayMatriz = false;
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
-        boton = (Button) findViewById(R.id.matrizGJ);
+        boton = (Button) findViewById(R.id.matrizGauss);
         botonJordan = (Button)findViewById(R.id.gaussJordanBtn);
         botonTamano = (Button)findViewById(R.id.enterTamGJ);
 

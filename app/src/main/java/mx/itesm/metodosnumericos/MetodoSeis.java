@@ -23,6 +23,7 @@ public class MetodoSeis extends Activity {
     private EditText ecuacionTxt,txtR,txtS, errorTxt;
     private TextView resultado;
     private Button botonEcuacion, calcular ,botonR, botonS, botonError;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,17 @@ public class MetodoSeis extends Activity {
         errorTxt = (EditText)findViewById(R.id.errorBr);
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoBr);
+
+        //Back
+        back = (ImageButton)findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(),PrimerPantalla.class);
+                startActivity(inti);
+            }
+        });
 
         botonEcuacion.setOnClickListener(new View.OnClickListener() {
             @Override
