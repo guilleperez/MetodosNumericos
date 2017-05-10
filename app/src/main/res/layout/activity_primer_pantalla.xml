@@ -77,6 +77,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="Azul" />
+        android:text="Bairstow" />
 
 </RelativeLayout>

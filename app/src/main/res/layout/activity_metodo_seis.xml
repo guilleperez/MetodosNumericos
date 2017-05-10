@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="mx.itesm.metodosnumericos.MetodoSeis">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/resultadoBr"
+        android:layout_width="400dp"
+        android:layout_height="140dp"
+        android:layout_below="@+id/errButtonBr"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/EcuacionBr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:ems="10"
+        android:hint="Ecuación"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/EcButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EcuacionBr"
+        android:layout_centerHorizontal="true"
+        android:text="Enter" />
+
+    <EditText
+        android:id="@+id/r"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/EcButton"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:ems="10"
+        android:hint="r"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/rButton"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/r"
+        android:layout_alignStart="@+id/r"
+        android:layout_below="@+id/r"
+        android:text="ENTER" />
+
+    <EditText
+        android:id="@+id/s"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/EcButton"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:ems="10"
+        android:hint="s"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center" />
+
+    <Button
+        android:id="@+id/sButton"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/s"
+        android:layout_alignStart="@+id/s"
+        android:layout_below="@+id/s"
+        android:text="ENTER" />
+
+    <EditText
+        android:id="@+id/errorBr"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Error"
+        android:inputType="textPersonName|numberDecimal"
+        android:textAlignment="center"
+        android:layout_below="@+id/s"
+        android:layout_alignLeft="@+id/errButtonBr"
+        android:layout_alignStart="@+id/errButtonBr"
+        android:layout_marginTop="31dp" />
+
+    <Button
+        android:id="@+id/errButtonBr"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:layout_below="@+id/errorBr"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bairstowButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="Ok"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/EcButton"
+        android:layout_alignStart="@+id/EcButton" />
+</RelativeLayout>
+
