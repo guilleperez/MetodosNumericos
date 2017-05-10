@@ -1,6 +1,9 @@
 package mx.itesm.metodosnumericos;
 
-import java.util.ArrayList;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
+import static android.os.Build.VERSION_CODES.M;
 
 /**
  * Created by guille_pt on 26/04/2017.
@@ -8,125 +11,119 @@ import java.util.ArrayList;
 
 public class Gauss {
 
-    public Gauss() {
+
+    private Float[][] MA ;
+    private Float[][] G;
+    private Float[] res;
+
+    public Gauss(Float[][] g){
+        setGauss(g);
     }
 
-    public Float[][] calcularGauss(Float[][] G) {
-        //Matriz matriz = a;
-        //Matriz mat = a;
-        float valor;
-        ArrayList<Float> valores = null;
-        //ArrayList<ArrayList<Float>> mat;
-        String texto;
-        int fila;
-        Float[][] g = G;
+    public void setGauss(Float[][] g){
+        this.G = g;
+    }
 
-        // vvv DEBUG
-        //System.out.println("INICIO: " + matriz.getDatos().toString());
-        // ^^^ DEBUG
-        /*texto = "Matriz inicial:";
-        GaussResult.agregarTexto(texto);
-        GaussResult.agregarMatriz(matriz.copy());*/
+    public Float[][] getGauss(){
+        return this.G;
+    }
 
-        if (G[0][0] != 1f) {
-            for (int y = 0; y < g.length; y++) {
-                for (int x = 0; x < g.length; x++) {
-                    valores.add(g[0][x]);
-                }
-            }
-            for (int i = valores.size() - 1; i >= 0; i--) {
-                valor = valores.get(i) / g[0][0];
-                valores.set(i, valor);
-            }
+    public void setRes(Float[] res) {
+        this.res = res;
+    }
 
-            // vvv DEBUG
-            // System.out.println("STEP 1: " + matriz.getDatos().toString());
-            // ^^^ DEBUG
-            //fila = 1;
-            /*texto = "Se divide la fila " + fila + " entre el valor en la\n" +
-                    "posición [" + fila + "] de ésta misma.\n" +
-                    "(La F" + fila + " se divide entre F" + fila + "[" + fila + "])";
-            GaussResult.agregarTexto(texto);
-            GaussResult.agregarMatriz(matriz.copy());
+    public Float[] getRes() {
+        return this.res;
+    }
+    public boolean calcular() {
 
-        }*/
+        modificarMatriz(getGauss());
 
-            // vvv DEBUG
-//        System.out.println("STEP: " + matriz.getDatos().toString());
-            // ^^^ DEBUG
+        Float[] res = new  Float[this.getGauss().length];
+        MA = this.getGauss();
 
-            float pivote = 0;
-            ArrayList<Float> valores1 = null;
-            ArrayList<Float> valores2 = null;
-            for (int i = 1; i < g.length; i++) {
-                for (int j = i; j < g.length; j++) {
-                    valores1.add(g[g.length][j]);
-                    pivote = valores1.get(i - 1);
-//                System.out.println("Pivote: " + pivote);
-                    for (int k = i - 1; k < valores1.size(); k++) {
-                        valor = valores1.get(k) - (pivote * g[i - 1][j]);
-                        //mat.getDatos().get(i - 1).get(k));
-                        valores1.set(k, valor);
-                        // vvv DEBUG
-//                    System.out.println("STEP 2: " + matriz.getDatos().toString());
-//                    System.out.println("Valor: " + mat.getDatos().get(i - 1).get(k));
-                        // ^^^ DEBUG
+        /*for (int i = 0; i < this.getGauss().length; i++)
+            System.out.println(Arrays.toString(this.getGauss()[i]));*/
 
+        for (int i = 0; i < MA[0].length-2; i++) {
+            Float[] pivote = MA[i];
+            for (int j = i; j < MA.length; j++) {
+                if(j!=i){
+                    float mult;
+                    if(pivote[i] != 1){
+                       // System.out.println(this.getGauss()[j][i] + " a");
+                       // System.out.println(this.getGauss()[i][i] + " b" );
+                        mult = MA[j][i] / MA[i][i] ;
+                       // System.out.println(mult);
+                        //return false;
+                    }else {
+                        mult = MA[j][i];
                     }
-                    // vvv DEBUG
-                    //System.out.println("STEP 2: " + matriz.getDatos().toString());
-                    // ^^^ DEBUG
-                    //fila = j + 1;
-                /*texto = "Se le resta a cada valor de la fila " + fila + " el resultado" +
-                        "\nde la resta del valor en esta misma posición menos" +
-                        "\nla multiplicación del valor en la posición " + (fila - 1) + "por" +
-                        "\nel valor en esta misma posición de la fila anterior." +
-                        "\n(F" + fila + "[x] - (F" + fila + "[" + (fila - 1) + "] * F" + (fila - 1) + "[x]) )";
-                GaussResult.agregarTexto(texto);
-                GaussResult.agregarMatriz(matriz.copy());*/
+
+                    MA = this.getGauss();
+                    for (int k = 0; k < MA[i].length; k++) {
+                        MA[j][k] = MA[j][k]  + (pivote[k] * -mult);
+                        if(MA[j][k].isNaN() || MA[j][k].isInfinite())
+                            return false;
+                    }
+                    this.setGauss(MA);
+                    //System.out.println(Arrays.toString(this.getGauss()[j]));
                 }
-
-                valores2.add(g[g.length][i]);
-                //mat.getDatos().get(i);
-                for (int j = valores2.size() - 1; j >= 0; j--) {
-                    valor = valores2.get(j) / g[i][i];
-                    valores2.set(j, valor);
-                }
-
-                // vvv DEBUG
-                //System.out.println("STEP 3: " + matriz.getDatos().toString());
-                // ^^^ DEBUG
-                fila = i + 1;
-            /*texto = "Se divide la fila " + fila + " entre el valor en la\n" +
-                    "posición [" + fila + "] de ésta misma.\n" +
-                    "(La F" + fila + " se divide entre F" + fila + "[" + fila + "])";
-
-            GaussResult.agregarTexto(texto);
-            GaussResult.agregarMatriz(matriz.copy());*/
             }
-
-            // vvv DEBUG
-//        System.out.println("Step: " + matriz.getDatos().toString());
-            // ^^^ DEBUG
-
-
-//        for (int i = 1; i < mat.getDatos().size(); i++) {
-//            valores = mat.getDatos().get(i);
-//            for (int j = valores.size() - 1; j >= 0; j--) {
-//                valor = valores.get(j) / mat.getDatos().get(i).get(i);
-//                valores.set(j, valor);
-//            }
-//        }
-
-            // vvv DEBUG
-            //System.out.println("Final: " + matriz.getDatos().toString());
-            // ^^^ DEBUG
-            // texto = "Matriz final:";
-        /*GaussResult.agregarTexto(texto);
-        GaussResult.agregarMatriz(matriz.copy());
-
-        return matriz.copy();*/
         }
-        return g;
+
+        /*for (int i = 0; i < this.getGauss().length; i++)
+            System.out.println(Arrays.toString(this.getGauss()[i]));*/
+
+        MA = this.getGauss();
+
+        MA [MA.length-1][ MA[0].length-1] /= MA [MA.length-1][MA[0].length-2];
+        res[res.length-1] = this.getGauss()[this.getGauss().length-1][this.getGauss()[0].length-1];
+        MA [ MA.length-1][ MA.length-2] = 1f;
+
+        //Float[] pivote =  MA [ MA .length-1];
+        //System.out.println(Arrays.toString(pivote) + " pivote");
+        //MA = this.getGauss();
+        float x = 0;
+        for (int i = MA.length-2; i >=0; i--) {
+            x = MA[i][MA[i].length-1];
+            System.out.println(Arrays.toString(MA[i]));
+            for (int j = MA[i].length-2; j >0; j--) {
+                if( MA[i][j-1] != 0){
+                    x += -(MA[i][j] * MA[j][MA[i].length-1]);
+                }else{
+                    x = x /  MA[i][j];
+                    MA[i][MA[i].length-1] = x ;
+                    res[i] = x;
+                    this.setGauss(MA);
+                }
+            }
+        }
+
+        x = x /  MA[0][0];
+        MA[0][MA[0].length-1] = x ;
+        res[0] = x;
+        this.setGauss(MA);
+
+        this.setRes(res);
+        //System.out.println(" *** ");
+        //for (int i = 0; i < this.getGauss().length; i++)
+            //System.out.println(Arrays.toString(this.getGauss()[i]));
+          //  System.out.println(res[i]);
+
+
+
+        return true;
     }
+
+    public void modificarMatriz(Float[][] M) {
+        if(M[0][0] == 0) {
+            Float[] temp = M[1];
+            M[1] = M[0];
+            M[0] = temp;
+            this.setGauss(M);
+        }
+    }
+
+
 }
