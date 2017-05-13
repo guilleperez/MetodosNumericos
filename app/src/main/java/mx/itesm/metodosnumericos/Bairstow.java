@@ -23,7 +23,7 @@ public class Bairstow {
             do {
                 Division_Derivada(a, b, c, r, s, n);
 
-/*
+/*/
         System.out.println("Solucionando ");
         System.out.print("fn(x) = "); imprime(a, n);
         System.out.print("fn-2(x) = "); imprime2(b, n);
