@@ -8,9 +8,16 @@ import android.util.Log;
 
 public class Cramer {
 
+    public String resultado;
 
-    public Cramer() {}
+    public Cramer() {
 
+    }
+
+
+    public void setResultado(String resultado){
+        this.resultado = resultado;
+    }
 
     public float determinante(int j, float a[][]) {
 

@@ -19,7 +19,7 @@
         tools:layout_editor_absoluteY="325dp" />
 
     <TextView
-        android:id="@+id/matrizGauss"
+        android:id="@+id/splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/inicio"
@@ -28,5 +28,6 @@
         android:layout_marginBottom="146dp"
         android:layout_marginLeft="129dp"
         android:layout_marginStart="129dp"
+        android:textSize="17sp"
         android:text="TextView" />
 </RelativeLayout>

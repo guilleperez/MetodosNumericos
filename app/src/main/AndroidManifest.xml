@@ -22,7 +22,8 @@
         <activity android:name=".MetodoTres" />
         <activity android:name=".Determinante" />
         <activity android:name=".MetodoCinco" />
-        <activity android:name=".MetodoSeis"></activity>
+        <activity android:name=".MetodoSeis" />
+        <activity android:name=".Resultados"></activity>
     </application>
 
 </manifest>

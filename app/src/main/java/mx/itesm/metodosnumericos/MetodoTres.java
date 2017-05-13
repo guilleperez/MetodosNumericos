@@ -115,15 +115,18 @@ public class MetodoTres extends Activity {
                 }
 
                 Gauss g = new Gauss(G);
-
+                String res = "";
                 if (g.calcular()) {
-                    resultado.setText("Resultado = \n" + Arrays.toString(g.getRes()));
+                    res =  Arrays.toString(g.getRes());
+                    resultado.setText("Resultado = \n" +  Arrays.toString(g.getRes()));
                 } else {
                     //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
+                    res = "No se puede calcular";
                     resultado.setText("No se puede calcular");
 
                     // Log.d("********************** ", "RESULTADO  " + res);
                 }
+                sendMessageIntent(res);
 
                 arreglo.clear();
                 basta = 0;
@@ -137,8 +140,12 @@ public class MetodoTres extends Activity {
 
             }
         });
+    }
 
-
+    public void sendMessageIntent(String resultado) {
+        Intent intent =  new Intent(getApplicationContext(), Resultados.class);
+        intent.putExtra("key", resultado);
+        startActivity(intent);
     }
 }
 

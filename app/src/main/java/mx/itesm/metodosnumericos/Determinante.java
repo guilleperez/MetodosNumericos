@@ -99,23 +99,9 @@ public class Determinante extends Activity {
                 }
 
 
-
                 resultado.setText(cm.determinante(0,a)+" ");
-                /*if(cramer != null){
-                    String res ="[ ";
-                    for(int i=0;i<cramer.length;i++){
-                        if(i!=cramer.length-1)
-                            res += cramer[i] + " , ";
-                        else
-                            res += cramer[i];
-                    }
-                    res += " ]";
-                    resultado.setText("El resultado de la operacion es\n"+res);
-                }else{
-                    resultado.setText("El determinante es cero, entonces el sistema no tiene resolución." );
-                }
-*/
-                //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
+
+                sendMessageIntent(String.valueOf(cm.determinante(0,a)));
 
                 //resultado.setText(arreglo.toString());
                 //Log.d("********************** ", "RESULTADO  "  + res);
@@ -156,8 +142,12 @@ public class Determinante extends Activity {
 
             }
         });
+    }
 
-
+    public void sendMessageIntent(String resultado) {
+        Intent intent =  new Intent(getApplicationContext(), Resultados.class);
+        intent.putExtra("key", resultado);
+        startActivity(intent);
     }
 }
 

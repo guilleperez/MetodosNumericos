@@ -35,6 +35,7 @@ public class Gauss {
     public Float[] getRes() {
         return this.res;
     }
+
     public boolean calcular() {
 
         modificarMatriz(getGauss());
@@ -95,6 +96,8 @@ public class Gauss {
                     x = x /  MA[i][j];
                     MA[i][MA[i].length-1] = x ;
                     res[i] = x;
+                    if(res[i].isNaN() || res[i].isInfinite())
+                        return false;
                     this.setGauss(MA);
                 }
             }
@@ -103,6 +106,8 @@ public class Gauss {
         x = x /  MA[0][0];
         MA[0][MA[0].length-1] = x ;
         res[0] = x;
+        if(res[0].isNaN() || res[0].isInfinite())
+            return false;
         this.setGauss(MA);
 
         this.setRes(res);

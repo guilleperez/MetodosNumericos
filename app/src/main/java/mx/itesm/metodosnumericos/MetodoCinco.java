@@ -3,6 +3,7 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -102,21 +103,10 @@ public class MetodoCinco extends Activity {
                     }
                 }
 
-                Float[][] gaussJordan = gj.calcular(G);
-                String res = "";
-                for(int i=0;i<gaussJordan.length;i++){
-                    //Log.d("*****",""+ Arrays.toString(gaussJordan[i]));
-                    if(i!=gaussJordan.length-1)
-                        res += Arrays.toString(gaussJordan[i]) + " , ";
-                    else
-                        res += Arrays.toString(gaussJordan[i]);
-                }
-                resultado.setText("Resultado =\n"+res);
+                String res  = gj.calcular(G);
+                Log.d("*************",res);
+                sendMessageIntent(res);
 
-                //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
-
-                //resultado.setText(arreglo.toString());
-                //Log.d("********************** ", "RESULTADO  "  + res);
                 arreglo.clear();
                 tamano = 0;
                 basta = 0;
@@ -155,6 +145,12 @@ public class MetodoCinco extends Activity {
             }
         });
 
+    }
+
+    public void sendMessageIntent(String resultado) {
+        Intent intent =  new Intent(getApplicationContext(), Resultados.class);
+        intent.putExtra("key", resultado);
+        startActivity(intent);
     }
 }
 

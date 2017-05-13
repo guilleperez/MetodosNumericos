@@ -164,6 +164,8 @@ public class MetodoSeis extends Activity {
                 }
 
                 resultado.setText("Resultado = \n" + result);
+                sendMessageIntent(result);
+
                 ecuacion.clear();
                 //bastaL = 0;
                // bastaM = 0;
@@ -178,6 +180,12 @@ public class MetodoSeis extends Activity {
             }
         });
 
+    }
+
+    public void sendMessageIntent(String resultado) {
+        Intent intent =  new Intent(getApplicationContext(), Resultados.class);
+        intent.putExtra("key", resultado);
+        startActivity(intent);
     }
 }
 
