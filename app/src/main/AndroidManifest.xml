@@ -20,7 +20,7 @@
         <activity android:name=".PrimerPantalla" />
         <activity android:name=".MetodoDos" />
         <activity android:name=".MetodoTres" />
-        <activity android:name=".NewRaphsonPantalla" />
+        <activity android:name=".Determinante" />
         <activity android:name=".MetodoCinco" />
         <activity android:name=".MetodoSeis"></activity>
     </application>

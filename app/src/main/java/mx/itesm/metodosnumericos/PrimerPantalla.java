@@ -2,14 +2,10 @@ package mx.itesm.metodosnumericos;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class PrimerPantalla extends Activity {
 
@@ -54,7 +50,7 @@ public class PrimerPantalla extends Activity {
         NewRaphsonBoton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inti  = new Intent(getBaseContext(), NewRaphsonPantalla.class);
+                Intent inti  = new Intent(getBaseContext(), Determinante.class);
                 startActivity(inti);
             }
         });

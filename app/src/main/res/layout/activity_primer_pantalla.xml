@@ -51,12 +51,12 @@
         android:id="@+id/botonCuatro"
         android:layout_width="300dp"
         android:layout_height="60dp"
+        android:layout_alignLeft="@+id/botonTres"
+        android:layout_alignStart="@+id/botonTres"
+        android:layout_below="@+id/botonTres"
         android:layout_marginTop="21dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="New Raphson"
-        android:layout_below="@+id/botonTres"
-        android:layout_alignLeft="@+id/botonTres"
-        android:layout_alignStart="@+id/botonTres" />
+        android:text="Determinante" />
 
     <Button
         android:id="@+id/botonCinco"
