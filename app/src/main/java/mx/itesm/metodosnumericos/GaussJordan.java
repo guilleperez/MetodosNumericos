@@ -11,7 +11,6 @@ import java.util.Arrays;
 public class GaussJordan {
 
     public GaussJordan(){
-
     }
 
     public String calcular(Float[][] G) {
