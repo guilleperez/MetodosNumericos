@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="MetodosNumericos"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -16,13 +16,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MetodoUno" />
-        <activity android:name=".PrimerPantalla" />
-        <activity android:name=".MetodoDos" />
-        <activity android:name=".MetodoTres" />
-        <activity android:name=".Determinante" />
-        <activity android:name=".MetodoCinco" />
-        <activity android:name=".MetodoSeis"></activity>
+        <activity android:name=".MetodoUno"
+            android:label="Crammer" />
+        <activity android:name=".PrimerPantalla"
+            android:label="Métodos Numéricos"
+            android:textAlignment="center"/>
+        <activity android:name=".MetodoDos"
+            android:label="Gauss Seidel" />
+        <activity android:name=".MetodoTres"
+            android:label="Gauss" />
+        <activity android:name=".Determinante"
+            android:label="Determinante" />
+        <activity android:name=".MetodoCinco"
+            android:label="Gauss Jordan" />
+        <activity android:name=".MetodoSeis"
+            android:label="Bairstow"></activity>
     </application>
 
 </manifest>

@@ -26,7 +26,6 @@
         android:inputType="numberSigned"
         android:singleLine="false"
         android:textAlignment="center"
-        android:layout_marginBottom="14dp"
         android:layout_above="@+id/btnLista"
         android:layout_alignLeft="@+id/btnLista"
         android:layout_alignStart="@+id/btnLista" />
@@ -35,35 +34,36 @@
         android:id="@+id/errorTxt"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/matrizzGJ"
-        android:layout_alignBottom="@+id/matrizzGJ"
-        android:layout_alignLeft="@+id/botonError"
-        android:layout_alignStart="@+id/botonError"
         android:ems="10"
         android:hint="Error"
         android:inputType="numberDecimal"
         android:singleLine="false"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_above="@+id/btnLista"
+        android:layout_alignLeft="@+id/botonError"
+        android:layout_alignStart="@+id/botonError" />
 
     <EditText
         android:id="@+id/numero"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/btnMatriz"
-        android:layout_alignRight="@+id/btnMatriz"
-        android:layout_alignTop="@+id/tamanoGJ"
         android:ems="10"
         android:hint="Matriz"
         android:inputType="numberSigned"
         android:singleLine="false"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:layout_alignBaseline="@+id/tamanoGJ"
+        android:layout_alignBottom="@+id/tamanoGJ"
+        android:layout_alignLeft="@+id/btnMatriz"
+        android:layout_alignStart="@+id/btnMatriz" />
 
     <Button
         android:id="@+id/btnLista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter"
-        android:layout_centerVertical="true"
+        android:layout_marginBottom="54dp"
+        android:layout_above="@+id/resultadoGJ"
         android:layout_alignLeft="@+id/resultadoGJ"
         android:layout_alignStart="@+id/resultadoGJ" />
 
@@ -73,8 +73,8 @@
         android:layout_height="wrap_content"
         android:text="Enter"
         android:layout_below="@+id/tamanoGJ"
-        android:layout_alignLeft="@+id/matrizzGJ"
-        android:layout_alignStart="@+id/matrizzGJ" />
+        android:layout_alignLeft="@+id/errorTxt"
+        android:layout_alignStart="@+id/errorTxt" />
 
     <Button
         android:id="@+id/matrizGauss"
@@ -82,9 +82,8 @@
         android:layout_height="wrap_content"
         android:text="Enter"
         android:layout_below="@+id/tamanoGJ"
-        android:layout_alignLeft="@+id/botonError"
-        android:layout_alignStart="@+id/botonError"
-        android:layout_marginTop="12dp" />
+        android:layout_alignLeft="@+id/tamanoGJ"
+        android:layout_alignStart="@+id/tamanoGJ" />
 
     <ImageButton
         android:id="@+id/back"
@@ -92,42 +91,43 @@
         android:layout_height="50dp"
         android:background="@mipmap/back"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/numero"
-        android:layout_alignStart="@+id/numero" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginBottom="11dp" />
 
     <Button
         android:id="@+id/gauss_seidel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ok"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/resultadoGJ"
-        android:layout_alignEnd="@+id/resultadoGJ"
-        android:layout_marginBottom="12dp" />
+        android:layout_alignBottom="@+id/back"
+        android:layout_toLeftOf="@+id/botonError"
+        android:layout_toStartOf="@+id/botonError"
+        android:text="Calcular" />
 
     <EditText
         android:id="@+id/tamanoGJ"
         android:layout_width="90dp"
         android:layout_height="50dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Tamaño"
         android:inputType="number"
         android:singleLine="false"
         android:textAlignment="center"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/matrizGauss"
-        android:layout_alignStart="@+id/matrizGauss" />
+        android:layout_alignLeft="@+id/matrizzGJ"
+        android:layout_alignStart="@+id/matrizzGJ" />
 
     <Button
         android:id="@+id/botonError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Error"
-        android:layout_alignBaseline="@+id/btnLista"
-        android:layout_alignBottom="@+id/btnLista"
-        android:layout_alignLeft="@+id/gauss_seidel"
-        android:layout_alignStart="@+id/gauss_seidel" />
+        android:layout_below="@+id/errorTxt"
+        android:layout_alignRight="@+id/resultadoGJ"
+        android:layout_alignEnd="@+id/resultadoGJ" />
 
 
 </RelativeLayout>

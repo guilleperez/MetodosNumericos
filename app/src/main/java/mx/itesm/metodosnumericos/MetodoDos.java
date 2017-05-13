@@ -3,6 +3,7 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MetodoDos extends Activity {
+public class MetodoDos extends AppCompatActivity {
 
     private EditText tamanoTxt,numerosTxt,txtError, listaTxt;
     private ArrayList<String> arregloM = new ArrayList<String>();
@@ -31,7 +32,7 @@ public class MetodoDos extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_dos);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
@@ -48,6 +49,17 @@ public class MetodoDos extends Activity {
         listaTxt = (EditText)findViewById(R.id.matrizzGJ);
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoGJ);
+
+        if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonError.isEnabled() && botonLista.isEnabled()){
+            if (calcular.isEnabled()){
+                calcular.setEnabled(false);
+            }
+        }
+        /*else{
+            if (!calcular.isEnabled()) {
+                calcular.setEnabled(true);
+            }
+        }*/
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,27 +83,15 @@ public class MetodoDos extends Activity {
                     if(bastaL >= tamano){
                         if(botonLista.isEnabled()) {
                             botonLista.setEnabled(false);
+                            //calcular.setEnabled(true);
+
                         }
                     }
-                }
-            }
-        });
-
-        botonError.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String getInput = txtError.getText().toString();
-
-                if(getInput == null||getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                } else{
-                    ((EditText) findViewById(R.id.errorTxt)).setText(" ");
-                    Toast.makeText(getBaseContext(), "Error: "+getInput,Toast.LENGTH_LONG).show();
-                    if(botonError.isEnabled()) {
-                        botonError.setEnabled(false);
+                    if(!botonTamano.isEnabled() && !botonDatos.isEnabled() && !botonError.isEnabled() && !botonLista.isEnabled()){
+                        if(!calcular.isEnabled()){
+                            calcular.setEnabled(true);
+                        }
                     }
-
-                    error = Float.parseFloat(getInput) ;
                 }
             }
         });
@@ -111,6 +111,12 @@ public class MetodoDos extends Activity {
                     if(bastaM >= (tamano+1) * tamano){
                         if(botonDatos.isEnabled()) {
                             botonDatos.setEnabled(false);
+                            //calcular.setEnabled(true);
+                        }
+                    }
+                    if(!botonTamano.isEnabled() && !botonDatos.isEnabled() && !botonError.isEnabled() && !botonLista.isEnabled()){
+                        if(!calcular.isEnabled()){
+                            calcular.setEnabled(true);
                         }
                     }
                 }
@@ -118,6 +124,68 @@ public class MetodoDos extends Activity {
                 //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
             }
         });
+
+        botonError.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getInput = txtError.getText().toString();
+
+                if(getInput == null||getInput.trim().equals("")){
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
+                } else{
+                    ((EditText) findViewById(R.id.errorTxt)).setText(" ");
+                    Toast.makeText(getBaseContext(), "Error: "+getInput,Toast.LENGTH_LONG).show();
+                    if(botonError.isEnabled()) {
+                        botonError.setEnabled(false);
+                       // calcular.setEnabled(true);
+                    }
+                    if(!botonTamano.isEnabled() && !botonDatos.isEnabled() && !botonError.isEnabled() && !botonLista.isEnabled()){
+                        if(!calcular.isEnabled()){
+                            calcular.setEnabled(true);
+                        }
+                    }
+
+                    error = Float.parseFloat(getInput) ;
+                }
+            }
+        });
+
+        botonTamano.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getInput = tamanoTxt.getText().toString().trim();
+
+                if(getInput == null||getInput.trim().equals("")){
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
+                }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
+                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
+                }
+                else{
+                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
+                    if(botonTamano.isEnabled()) {
+                        botonTamano.setEnabled(false);
+                        //calcular.setEnabled(true);
+                    }
+                    if(!botonTamano.isEnabled() && !botonDatos.isEnabled() && !botonError.isEnabled() && !botonLista.isEnabled()){
+                        if(!calcular.isEnabled()){
+                            calcular.setEnabled(true);
+                        }
+                    }
+                    tamano = Integer.parseInt(getInput);
+                }
+
+
+            }
+        });
+
+        /*if(!botonTamano.isEnabled() && !botonDatos.isEnabled() && !botonError.isEnabled() && !botonLista.isEnabled()){
+            if(!calcular.isEnabled()){
+                calcular.setEnabled(true);
+            }
+        }*/
+
 
 
          calcular.setOnClickListener(new View.OnClickListener() {
@@ -169,30 +237,9 @@ public class MetodoDos extends Activity {
                     botonLista.setEnabled(true);
                 }
 
-            }
-        });
-
-        botonTamano.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String getInput = tamanoTxt.getText().toString().trim();
-
-                if(getInput == null||getInput.trim().equals("")){
-                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
-                    Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
+                if(calcular.isEnabled()){
+                    calcular.setEnabled(false);
                 }
-                else{
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
-                    if(botonTamano.isEnabled()) {
-                        botonTamano.setEnabled(false);
-                    }
-                    tamano = Integer.parseInt(getInput);
-                }
-
-
             }
         });
     }

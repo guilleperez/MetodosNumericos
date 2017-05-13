@@ -3,6 +3,7 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -15,7 +16,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MetodoTres extends Activity {
+public class MetodoTres extends AppCompatActivity {
 
     private EditText txtTamano,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
@@ -27,7 +28,7 @@ public class MetodoTres extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_tres);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
@@ -40,6 +41,12 @@ public class MetodoTres extends Activity {
 
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoG);
+
+        if(botonTamano.isEnabled() && botonMatriz.isEnabled()){
+            if (botonGauss.isEnabled()){
+                botonGauss.setEnabled(false);
+            }
+        }
 
 
         back.setOnClickListener(new OnClickListener() {
@@ -88,6 +95,7 @@ public class MetodoTres extends Activity {
                     if(basta >= (tamano+1) * tamano){
                         if(botonMatriz.isEnabled()|| !botonGauss.isEnabled()) {
                             botonMatriz.setEnabled(false);
+                            botonGauss.setEnabled(true);
                         }
                     }
                 }

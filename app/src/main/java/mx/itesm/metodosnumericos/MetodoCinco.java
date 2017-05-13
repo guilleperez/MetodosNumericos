@@ -3,6 +3,7 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -14,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MetodoCinco extends Activity {
+public class MetodoCinco extends AppCompatActivity {
 
     //private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
@@ -26,7 +27,7 @@ public class MetodoCinco extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_cinco);
         //dibujoMatriz = new TableLayout(this);
         tamanoTxt = (EditText) findViewById(R.id.tamanoGJ);

@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Bairstow {
 
-     public ArrayList<String> Bairstow(double a[], double r0, double s0, double re[], double im[], double error)
+     public ArrayList<String> Bairstow(double a[], double r0, double s0, double re[], double im[], double error, int tamaño)
     {
-        int n = a.length, iter =0;
+        int n = tamaño, iter =0;
         double b[] = new double[n], c[] = new double[n];
         double ea1 = 1, ea2 = 1, T = error;
         double r=r0, s=s0,det, ds, dr;
