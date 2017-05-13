@@ -3,18 +3,19 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class PrimerPantalla extends Activity {
+public class PrimerPantalla extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
         // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_primer_pantalla);
 
         Button boton = (Button)findViewById(R.id.botonUno);

@@ -3,6 +3,7 @@ package mx.itesm.metodosnumericos;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -14,33 +15,33 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Determinante extends Activity {
+public class Determinante extends AppCompatActivity {
 
     private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
     private Integer tamano, basta = 0;
     private TextView resultado;
-    private Button botonTamano,botonCramer,boton;
+    private Button botonTamanho,botonDeterminante,boton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        // getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_determinante);
 
         ImageButton back = (ImageButton)findViewById(R.id.back);
         boton = (Button) findViewById(R.id.matrizGauss);
-        botonCramer = (Button)findViewById(R.id.cramerBoton);
-        botonTamano = (Button)findViewById(R.id.enterTamano);
+        botonDeterminante = (Button)findViewById(R.id.cramerBoton);
+        botonTamanho = (Button)findViewById(R.id.enterTamano);
         //Datos
         txt = (EditText)findViewById(R.id.matrizzGJ);
         txtDos = (EditText)findViewById(R.id.tamanoGJ);
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoGJ);
-        if(botonTamano.isEnabled() && boton.isEnabled()){
-            if (botonCramer.isEnabled()){
-                botonCramer.setEnabled(false);
+        if(botonTamanho.isEnabled() && boton.isEnabled()){
+            if (botonDeterminante.isEnabled()){
+                botonDeterminante.setEnabled(false);
             }
         }
 
@@ -56,9 +57,9 @@ public class Determinante extends Activity {
                     arreglo.add(getInput.trim());
                     basta += 1;
                     if(basta >= (tamano+1) * tamano){
-                        if(boton.isEnabled()|| !botonCramer.isEnabled()) {
+                        if(boton.isEnabled()|| !botonDeterminante.isEnabled()) {
                             boton.setEnabled(false);
-                            botonCramer.setEnabled(true);
+                            botonDeterminante.setEnabled(true);
                         }
                     }
                 }
@@ -77,7 +78,7 @@ public class Determinante extends Activity {
             }
         });
 
-        botonCramer.setOnClickListener(new OnClickListener() {
+        botonDeterminante.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Cramer cm = new Cramer();
@@ -108,18 +109,18 @@ public class Determinante extends Activity {
                 arreglo.clear();
                 tamano = 0;
                 basta = 0;
-                if(!botonTamano.isEnabled() || !boton.isEnabled()) {
-                    botonTamano.setEnabled(true);
+                if(!botonTamanho.isEnabled() || !boton.isEnabled()) {
+                    botonTamanho.setEnabled(true);
                     boton.setEnabled(true);
                 }
-                if(botonCramer.isEnabled()){
-                    botonCramer.setEnabled(false);
+                if(botonDeterminante.isEnabled()){
+                    botonDeterminante.setEnabled(false);
                 }
 
             }
         });
 
-        botonTamano.setOnClickListener(new OnClickListener() {
+        botonTamanho.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 String getInput = txtDos.getText().toString().trim();
@@ -134,8 +135,8 @@ public class Determinante extends Activity {
                 else{
                     ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
                     Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
-                    if(botonTamano.isEnabled()) {
-                        botonTamano.setEnabled(false);
+                    if(botonTamanho.isEnabled()) {
+                        botonTamanho.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
                 }

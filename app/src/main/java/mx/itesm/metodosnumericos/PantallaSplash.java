@@ -15,7 +15,7 @@ public class PantallaSplash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
 
         setContentView(R.layout.activity_pantalla_splash);

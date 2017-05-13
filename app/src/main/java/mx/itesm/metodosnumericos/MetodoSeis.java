@@ -1,11 +1,11 @@
 package mx.itesm.metodosnumericos;
 
-import android.app.Activity;
+//import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
+//import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -13,22 +13,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+//import java.util.Arrays;
 
-public class MetodoSeis extends Activity {
+
+public class MetodoSeis extends AppCompatActivity {
 
     private double r, s;
     private double error;
+    private int tamaño, basta;
     private ArrayList<String> ecuacion = new ArrayList<String>();
-    private EditText ecuacionTxt,txtR,txtS, errorTxt;
+    private EditText ecuacionTxt,txtR,txtS, errorTxt, tamañotxt;
     private TextView resultado;
-    private Button botonEcuacion, calcular ,botonR, botonS, botonError;
+    private Button botonEcuacion, calcular ,botonR, botonS, botonError, botonTamaño;
     private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_seis);
 
         botonEcuacion = (Button) findViewById(R.id.EcButton);
@@ -36,14 +38,23 @@ public class MetodoSeis extends Activity {
         botonR = (Button)findViewById(R.id.rButton);
         botonError = (Button)findViewById(R.id.errButtonBr);
         botonS = (Button)findViewById(R.id.sButton);
+        botonTamaño = (Button)findViewById(R.id.bottonGrado);
 
         //Datos
         ecuacionTxt = (EditText)findViewById(R.id.EcuacionBr);
         txtR = (EditText)findViewById(R.id.r);
         txtS = (EditText)findViewById(R.id.s);
         errorTxt = (EditText)findViewById(R.id.errorBr);
+        tamañotxt = (EditText)findViewById(R.id.Grado);
+
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoBr);
+
+        if(botonR.isEnabled() && botonS.isEnabled() && botonError.isEnabled() && botonEcuacion.isEnabled() && botonTamaño.isEnabled()){
+            if (calcular.isEnabled()){
+                calcular.setEnabled(false);
+            }
+        }
 
         //Back
         back = (ImageButton)findViewById(R.id.back);
@@ -66,13 +77,47 @@ public class MetodoSeis extends Activity {
                 } else{
                     ((EditText) findViewById(R.id.EcuacionBr)).setText(" ");
                     ecuacion.add(getInput.trim());
-                    /*bastaL += 1;
-                    if(bastaL >= tamano){
-                        if(botonLista.isEnabled()) {
-                            botonLista.setEnabled(false);
+                    basta += 1;
+                    if(basta >= tamaño){
+                        if(botonEcuacion.isEnabled()) {
+                            botonEcuacion.setEnabled(false);
                         }
-                    }*/
+                    }
+                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && botonS.isEnabled()) {
+                        if (!calcular.isEnabled()) {
+                            calcular.setEnabled(true);
+                        }
+                    }
                 }
+            }
+        });
+
+        botonTamaño.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String getInput = tamañotxt.getText().toString().trim();
+                tamaño = Integer.parseInt(getInput);
+
+                if(getInput == null||getInput.trim().equals("")){
+                    Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
+                }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
+                    ((EditText) findViewById(R.id.Grado)).setText(" ");
+                    Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
+                }
+                else{
+                    ((EditText) findViewById(R.id.Grado)).setText(" ");
+                    Toast.makeText(getBaseContext(), "La ecuación es de grado "+getInput,Toast.LENGTH_LONG).show();
+                    if(botonTamaño.isEnabled()) {
+                        botonTamaño.setEnabled(false);
+                    }
+                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
+                        if (!calcular.isEnabled()) {
+                            calcular.setEnabled(true);
+                        }
+                    }
+                    tamaño = Integer.parseInt(getInput)+1;
+                }
+
             }
         });
 
@@ -89,7 +134,11 @@ public class MetodoSeis extends Activity {
                     if(botonError.isEnabled()) {
                         botonError.setEnabled(false);
                     }
-
+                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
+                        if (!calcular.isEnabled()) {
+                            calcular.setEnabled(true);
+                        }
+                    }
                     error = Double.parseDouble(getInput);
                 }
             }
@@ -107,6 +156,11 @@ public class MetodoSeis extends Activity {
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonR.isEnabled()) {
                         botonR.setEnabled(false);
+                    }
+                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
+                        if (!calcular.isEnabled()) {
+                            calcular.setEnabled(true);
+                        }
                     }
                     r = Double.parseDouble(getInput);
                 }
@@ -127,6 +181,11 @@ public class MetodoSeis extends Activity {
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonS.isEnabled()) {
                         botonS.setEnabled(false);
+                    }
+                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
+                        if (!calcular.isEnabled()) {
+                            calcular.setEnabled(true);
+                        }
                     }
                     s = Double.parseDouble(getInput);
                 }
@@ -155,7 +214,7 @@ public class MetodoSeis extends Activity {
 
                 double[] re = new double[a.length];
                 double[] im = new double[a.length];
-                ArrayList<String> res = bairstow.Bairstow(a, r, s, re, im, error);
+                ArrayList<String> res = bairstow.Bairstow(a, r, s, re, im, error, tamaño);
                 String result = " ";
 
                 //double[] res = bairstow.Bairstow(a, r, s, re, im);
@@ -170,11 +229,15 @@ public class MetodoSeis extends Activity {
                 //bastaL = 0;
                // bastaM = 0;
 
-                if(!botonR.isEnabled() || !botonS.isEnabled() || !botonError.isEnabled() || !botonEcuacion.isEnabled()) {
+                if(!botonR.isEnabled() || !botonS.isEnabled() || !botonError.isEnabled() || !botonEcuacion.isEnabled() || !botonTamaño.isEnabled()) {
                     botonR.setEnabled(true);
                     botonS.setEnabled(true);
                     botonError.setEnabled(true);
                     botonEcuacion.setEnabled(true);
+                    botonTamaño.setEnabled(true);
+                }
+                if(calcular.isEnabled()){
+                    calcular.setEnabled(false);
                 }
 
             }
