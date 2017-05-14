@@ -13,10 +13,12 @@ public class GaussJordan {
     public GaussJordan(){
     }
 
-    public String calcular(Float[][] G) {
+    public String calcular(Float[][] G, int total) {
 
         int col = 0;
+        boolean valido = true;
         Float[] temp;
+        int cont = 0;
         String res ="1. Matriz Aumentada:\n";
 
         for (int i=0;i<G.length;i++)
@@ -31,6 +33,16 @@ public class GaussJordan {
                     temp = G[y];
                     G[y] = G[y + 1];
                     G[y + 1] = temp;
+                    cont ++;
+                    if(cont == total) {
+                        valido = false;
+                        break;
+                    }
+                }
+
+                if(!valido) {
+                    res += "\n3. Solucion:\nNo existe solución.";
+                    break;
                 }
 
                 if (G[y][col] != 1) {
@@ -38,11 +50,22 @@ public class GaussJordan {
                     Float[] valores = G[y];
                     float valor;
                     for (int i = valores.length - 1; i >= 0; i--) {
-                        valor = valores[i] / valores[col];
-                        valores[i] = valor;
+                        if(valores[col] != 0) {
+                            valor = valores[i] / valores[col];
+                            valores[i] = valor;
+                        }else{
+                            valido = false;
+                            break;
+                        }
                     }
                     res += Arrays.toString(valores) + "\n";
                 }
+
+                if(!valido) {
+                    res += "3. Solucion:\nNo existe solución.";
+                    break;
+                }
+
 
                 if (x != col) {
                     res += "\nModifica la fila " + x +"\n";
@@ -60,12 +83,17 @@ public class GaussJordan {
                 }
             }
 
+            if(!valido)
+                break;
+
             col++;
         }
 
-        res += "\n3. Solucion:\n";
-        for (int i = 0; i < G.length; i++)
-            res += Arrays.toString(G[i])+ "\n";
+        if (valido) {
+            res += "\n3. Solucion:\n";
+            for (int i = 0; i < G.length; i++)
+                res += Arrays.toString(G[i]) + "\n";
+        }
         return res;
     }
 }

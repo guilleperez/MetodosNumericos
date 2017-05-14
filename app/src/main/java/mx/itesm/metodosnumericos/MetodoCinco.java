@@ -16,7 +16,7 @@ public class MetodoCinco extends AppCompatActivity {
 
     //private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
-    private Integer tamano, basta = 0,x = 1 , y = 1;
+    private Integer tamano, basta = 0,x = 1 , y = 1, cont = 0;
     private TextView resultado;
     private Button botonTamano,botonJordan,boton;
     private EditText listaTxt, tamanoTxt;
@@ -61,6 +61,7 @@ public class MetodoCinco extends AppCompatActivity {
                 else{
                     ((EditText) findViewById(R.id.matrizzGJ)).setText(" ");
                     arreglo.add(getInput.trim());
+                    cont++;
                     basta += 1;
                     if(basta >= (tamano+1) * tamano){
                         if(boton.isEnabled()|| !botonJordan.isEnabled()) {
@@ -121,7 +122,7 @@ public class MetodoCinco extends AppCompatActivity {
                     }
                 }
 
-                String res =  "Metodo:\nGauss Jordan\n\nSolucion:\n" +gj.calcular(G);
+                String res =  "Metodo:\nGauss Jordan\n\nSolucion:\n\n" +gj.calcular(G, cont);
                 //Log.d("*************",res);
                 sendMessageIntent(res);
 

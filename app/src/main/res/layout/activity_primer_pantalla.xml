@@ -68,7 +68,7 @@
         android:layout_below="@+id/botonCuatro"
         android:layout_marginTop="16dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="GaussJordan" />
+        android:text="Gauss Jordan" />
 
     <Button
         android:id="@+id/botonSeis"
