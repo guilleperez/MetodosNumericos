@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MetodoUno extends AppCompatActivity {
 
@@ -101,21 +102,27 @@ public class MetodoUno extends AppCompatActivity {
                     }
                 }
 
+                String res = "Matriz: \n";
+                for (int i = 0; i < a.length; i++)
+                    res += Arrays.toString(a[i]) +"\n";
+                res += "\n\n Metodo: \n Cramer \n\n Resultado:\n";
 
                 float[] cramer = cm.cramer(a, b);
-                String res = "";
                 if (cramer != null) {
-                    res = "[ ";
+                   /* res = "[ ";
                     for (int i = 0; i < cramer.length; i++) {
                         if (i != cramer.length - 1)
                             res += cramer[i] + " , ";
                         else
                             res += cramer[i];
                     }
-                    res += " ]";
-                    resultado.setText("El resultado de la operacion es\n" + res);
+                    res += " ]";*/
+                    for (int i = 0; i < cramer.length; i++)
+                        res += cramer[i] +"\n";
+                    //resultado.setText("El resultado de la operacion es\n" + res);
                 } else {
-                    resultado.setText("El determinante es cero, entonces el sistema no tiene resolución.");
+                    res += "El determinante es cero, entonces el sistema no tiene resolución.";
+                  //  resultado.setText("El determinante es cero, entonces el sistema no tiene resolución.");
                 }
 
                 sendMessageIntent(res);

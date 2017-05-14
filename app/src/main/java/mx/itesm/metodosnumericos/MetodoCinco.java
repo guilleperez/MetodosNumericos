@@ -104,8 +104,8 @@ public class MetodoCinco extends AppCompatActivity {
                     }
                 }
 
-                String res  = gj.calcular(G);
-                Log.d("*************",res);
+                String res =  "Metodo: \n Gauss Jordan \n\n Resultado:\n" +gj.calcular(G);
+                //Log.d("*************",res);
                 sendMessageIntent(res);
 
                 arreglo.clear();

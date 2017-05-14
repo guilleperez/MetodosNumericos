@@ -38,7 +38,7 @@ public class MetodoDos extends AppCompatActivity {
         ImageButton back = (ImageButton) findViewById(R.id.back);
         botonDatos = (Button) findViewById(R.id.btnMatriz);
         calcular = (Button) findViewById(R.id.gauss_seidel);
-        botonTamano = (Button) findViewById(R.id.matrizGauss);
+        botonTamano = (Button) findViewById(R.id.btnTamano);
         botonError = (Button) findViewById(R.id.botonError);
         botonLista = (Button) findViewById(R.id.btnLista);
 
@@ -108,7 +108,10 @@ public class MetodoDos extends AppCompatActivity {
 
                 if (getInput == null || getInput.trim().equals("")) {
                     Toast.makeText(getBaseContext(), "Dato faltante", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(Float.parseFloat(getInput.trim()) <= 0) {
+                    Toast.makeText(getBaseContext(), "Error Invalido", Toast.LENGTH_SHORT).show();
+                    ((EditText) findViewById(R.id.errorTxt)).setText(" ");
+                }else{
                     ((EditText) findViewById(R.id.errorTxt)).setText(" ");
                     Toast.makeText(getBaseContext(), "Error: " + getInput, Toast.LENGTH_LONG).show();
                     if (botonError.isEnabled()) {
@@ -168,15 +171,20 @@ public class MetodoDos extends AppCompatActivity {
                 for (int i = 0; i < arregloL.size(); i++) {
                     X[i] = Float.parseFloat(arregloL.get(i));
                 }
-                String res = "";
+
+                String res = "Matriz: \n";
+                for (int i = 0; i < M.length; i++)
+                    res += Arrays.toString(M[i]) +"\n";
+                res += "\n\n Metodo: \n Gauss Seidel \n\n Resultado:\n";
+
                 if (!gausSeidel.makeDominant(M)) {
-                    res = "No se puede calcular; Diagonal no dominante";
-                    resultado.setText("No se puede calcular; Diagonal no dominante");
+                    res += "No se puede calcular; Diagonal no dominante";
+                    //resultado.setText("No se puede calcular; Diagonal no dominante");
                 } else {
                     float[] GS = gausSeidel.solve(M, error, X);
                     //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
-                    res = Arrays.toString(GS);
-                    resultado.setText("El resultado de la operacion es\n" + Arrays.toString(GS));
+                    res += Arrays.toString(GS) +"\n";
+                    //resultado.setText("El resultado de la operacion es\n" + Arrays.toString(GS));
                     // Log.d("********************** ", "RESULTADO  " + res);
                 }
 

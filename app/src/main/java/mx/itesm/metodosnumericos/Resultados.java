@@ -23,9 +23,9 @@ public class Resultados extends AppCompatActivity {
         ImageButton back = (ImageButton) findViewById(R.id.back);
 
         Bundle b = getIntent().getExtras();
-        String value = "El resultado de la operacion es\n\n";
+        String value = "";
         if(b != null)
-            value += b.getString("key");
+            value = b.getString("key");
 
         resultado.setText(value);
         resultado.setMovementMethod(new ScrollingMovementMethod());

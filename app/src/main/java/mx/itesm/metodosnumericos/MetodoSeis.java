@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 //import java.util.Arrays;
 
 
@@ -204,10 +205,6 @@ public class MetodoSeis extends AppCompatActivity {
 
                 double[] a = new double[ecuacion.size()];
 
-
-                int y = 0;
-                int x = 0;
-
                 for (int i = 0; i < ecuacion.size(); i++) {
                     a[i] =  Double.parseDouble(ecuacion.get(i));
                 }
@@ -215,14 +212,16 @@ public class MetodoSeis extends AppCompatActivity {
                 double[] re = new double[a.length];
                 double[] im = new double[a.length];
                 ArrayList<String> res = bairstow.Bairstow(a, r, s, re, im, error, tamaño);
-                String result = " ";
 
+                String result = "Matriz: \n" + Arrays.toString(a);
+                result += "\n\n Metodo: \n Bairstow \n\n Resultado:\n";
                 //double[] res = bairstow.Bairstow(a, r, s, re, im);
                 for(int i=0;i<res.size();i++) {
                     result += res.get(i) + "\n";
                 }
 
-                resultado.setText("Resultado = \n" + result);
+
+                //resultado.setText("Resultado = \n" + result);
                 sendMessageIntent(result);
 
                 ecuacion.clear();

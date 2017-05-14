@@ -101,7 +101,9 @@
         android:text="Calcular"
         android:layout_alignTop="@+id/back"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="10dp"
+       />
 
 </RelativeLayout>
 

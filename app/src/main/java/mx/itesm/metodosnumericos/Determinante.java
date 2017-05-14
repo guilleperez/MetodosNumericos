@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Determinante extends AppCompatActivity {
 
@@ -99,10 +100,13 @@ public class Determinante extends AppCompatActivity {
                     }
                 }
 
+                String res = "Matriz: \n";
+                for (int i = 0; i < a.length; i++)
+                    res += Arrays.toString(a[i])+"\n";
+                res += "\n Metodo: \n Determinante \n\n Resultado:\n" + cm.determinante(0,a);
+                //resultado.setText(cm.determinante(0,a)+" ");
 
-                resultado.setText(cm.determinante(0,a)+" ");
-
-                sendMessageIntent(String.valueOf(cm.determinante(0,a)));
+                sendMessageIntent(res);
 
                 //resultado.setText(arreglo.toString());
                 //Log.d("********************** ", "RESULTADO  "  + res);

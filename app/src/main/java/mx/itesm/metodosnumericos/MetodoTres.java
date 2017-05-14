@@ -125,13 +125,16 @@ public class MetodoTres extends AppCompatActivity {
                 }
 
                 Gauss g = new Gauss(G);
-                String res = "";
+                String res = "Matriz: \n";
+                for (int i = 0; i <G.length; i++)
+                    res += Arrays.toString(G[i])+"\n";
+                res += "\n Metodo: \n Gauss \n\n Resultado:\n";
                 if (g.calcular()) {
-                    res =  Arrays.toString(g.getRes());
+                    res +=  Arrays.toString(g.getRes())+"\n";
                     //resultado.setText("Resultado = \n" +  Arrays.toString(g.getRes()));
                 } else {
                     //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
-                    res = "No se puede calcular";
+                    res += "No se puede calcular";
                     //resultado.setText("No se puede calcular");
 
                     // Log.d("********************** ", "RESULTADO  " + res);
