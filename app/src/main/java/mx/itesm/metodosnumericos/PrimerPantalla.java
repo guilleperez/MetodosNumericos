@@ -20,16 +20,16 @@ public class PrimerPantalla extends AppCompatActivity {
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_primer_pantalla);
 
-        ImageButton back = (ImageButton)findViewById(R.id.back);
+        //ImageButton back = (ImageButton)findViewById(R.id.back);
         Button boton = (Button)findViewById(R.id.botonUno);
 
-        back.setOnClickListener(new View.OnClickListener() {
+       /* back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent inti = new Intent(getBaseContext(), PantallaSplash.class);
                 startActivity(inti);
             }
-        });
+        });*/
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

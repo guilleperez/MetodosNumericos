@@ -21,12 +21,13 @@ public class MetodoSeis extends AppCompatActivity {
 
     private double r, s;
     private double error;
-    private int tamaño, basta;
+    private int tamaño, basta, x=0;
     private ArrayList<String> ecuacion = new ArrayList<String>();
     private EditText ecuacionTxt,txtR,txtS, errorTxt, tamañotxt;
     private TextView resultado;
     private Button botonEcuacion, calcular ,botonR, botonS, botonError, botonTamaño;
     private ImageButton back;
+    String ec = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,22 +73,35 @@ public class MetodoSeis extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String getInput = ecuacionTxt.getText().toString();
+                int j= 0, k=0;
 
                 if(getInput == null||getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
-                } else{
+                } else {
                     ((EditText) findViewById(R.id.EcuacionBr)).setText(" ");
                     ecuacion.add(getInput.trim());
                     basta += 1;
-                    if(basta >= tamaño){
-                        if(botonEcuacion.isEnabled()) {
+                    if (basta >= tamaño) {
+                        if (botonEcuacion.isEnabled()) {
                             botonEcuacion.setEnabled(false);
                         }
                     }
-                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && botonS.isEnabled()) {
+                    if (!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && botonS.isEnabled()) {
                         if (!calcular.isEnabled()) {
                             calcular.setEnabled(true);
                         }
+                    }
+                    String s= "";
+                    if (x < tamaño) {
+                        x++;
+                        for (int i = ecuacion.size() - 1; i >= 0; i--){
+                           if (Double.parseDouble(ecuacion.get(i)) > 0)
+                            s += ("+ " + Double.parseDouble(ecuacion.get(i)) + "x" + i + " ");
+                            else
+                                s+= (Double.parseDouble(ecuacion.get(i)) + "x" + i + " ");}
+
+                        ec = s;
+                        resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec);
                     }
                 }
             }
@@ -97,13 +111,13 @@ public class MetodoSeis extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String getInput = tamañotxt.getText().toString().trim();
-                tamaño = Integer.parseInt(getInput);
+                tamaño = Integer.parseInt(getInput) + 1;
 
                 if(getInput == null||getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
                 }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
                     ((EditText) findViewById(R.id.Grado)).setText(" ");
-                    Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(),"La ecuación no puede ser de grado = "+getInput, Toast.LENGTH_LONG).show();
                 }
                 else{
                     ((EditText) findViewById(R.id.Grado)).setText(" ");
@@ -117,6 +131,7 @@ public class MetodoSeis extends AppCompatActivity {
                         }
                     }
                     tamaño = Integer.parseInt(getInput)+1;
+                    resultado.setText("Insertar: x" + x);
                 }
 
             }
@@ -164,6 +179,7 @@ public class MetodoSeis extends AppCompatActivity {
                         }
                     }
                     r = Double.parseDouble(getInput);
+                    resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r);
                 }
 
 
@@ -189,6 +205,7 @@ public class MetodoSeis extends AppCompatActivity {
                         }
                     }
                     s = Double.parseDouble(getInput);
+                    resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r + "\ns= " + s);
                 }
 
 
@@ -213,7 +230,7 @@ public class MetodoSeis extends AppCompatActivity {
                 double[] im = new double[a.length];
                 ArrayList<String> res = bairstow.Bairstow(a, r, s, re, im, error, tamaño);
 
-                String result = "Matriz: \n" + Arrays.toString(a);
+                String result = "Ecuación: \n" + ec;
                 result += "\n\n Metodo: \n Bairstow \n\n Resultado:\n";
                 //double[] res = bairstow.Bairstow(a, r, s, re, im);
                 for(int i=0;i<res.size();i++) {

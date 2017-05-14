@@ -22,26 +22,12 @@ public class Bairstow {
         {
             do {
                 Division_Derivada(a, b, c, r, s, n);
-
-/*/
-        System.out.println("Solucionando ");
-        System.out.print("fn(x) = "); imprime(a, n);
-        System.out.print("fn-2(x) = "); imprime2(b, n);
-        System.out.println("f2(x) = x2 + " + r + "x + " + s);
-        System.out.println(c[2] + " " + c[3] + " = " + -b[1]);
-        System.out.println(c[1] + " " + c[2] + " = " + -b[0]);
-*/
                 det = c[2]*c[2] - c[3]*c[1];
-                //System.out.println("Det= " + det);
+
                 if(det!=0)
                 {
                     dr = (-b[1]*c[2] + b[0]*c[3])/det;
                     ds = (-b[0]*c[2] + b[1]*c[1])/det;
-          /*
-          System.out.println("*********************************");
-          System.out.println(r+dr +" = " + r + " + " + dr);
-          System.out.println(s+ds +" = " + s + " + " + ds);
-          System.out.println("-----------------------------------");*/
                     r = r+dr;
                     s = s+ds;
                     if(r!=0) ea1 = Math.abs(dr/r)*100.0;
@@ -56,10 +42,6 @@ public class Bairstow {
             }
             while ((ea1 > T) && (ea2 > T));
             raices(r, s, re, im, n);
-           /* System.out.println("iter " +iter);
-            System.out.print("fn(x) = "); imprime(a, n);
-            System.out.print("fn-2(x) = "); imprime2(b, n);
-            System.out.println("f2(x) = x2 -(" +r + ")x -(" +s +")");*/
             n = n-2;
             for(i=0; i<n; i++)
                 a[i] = b[i+2];
@@ -67,10 +49,8 @@ public class Bairstow {
         }
         if(n==3)
         {
-            //System.out.println("n = " + n);
             r = -a[1]/a[2];
             s = -a[0]/a[2];
-            //imprime(a, n);
             raices(r, s, re, im, n);
         }
         else
@@ -84,7 +64,6 @@ public class Bairstow {
                 System.out.println( "X["+i+"]= " + re[i] + " j " + im[i]);
             result.add(string);
             }
-
             return result;
     }
 
@@ -106,27 +85,6 @@ public class Bairstow {
         }
 
     }
-
-   /* public static void imprime(double x[], int n)
-    {
-        int i;
-
-        for (i = n - 1; i >= 0; i--)
-            if(x[i] > 0) System.out.print("+ " +x[i] + "x"+i+" ");
-            else System.out.print("- " + -x[i] + "x"+i+" ");
-        System.out.println("");
-    }
-
-    public static void imprime2(double x[], int n)
-    {
-        int i;
-
-        for (i = n - 1; i >= 2; i--)
-            if(x[i] > 0) System.out.print("+ " +x[i] + "x"+(i-2)+" ");
-            else System.out.print("- " + -x[i] + "x"+(i-2)+" ");
-        System.out.println("Residuo = {"+ x[1]+ ", " + x[0] + "}");
-
-    }*/
 
     public static void raices(double r, double s, double re[], double im[], int n)
     {
