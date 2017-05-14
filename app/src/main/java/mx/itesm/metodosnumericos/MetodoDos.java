@@ -57,7 +57,7 @@ public class MetodoDos extends AppCompatActivity {
                 startActivity(inti);
             }
         });
-
+//Hola
         botonTamano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
