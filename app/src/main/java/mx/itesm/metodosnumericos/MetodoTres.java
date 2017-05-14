@@ -20,9 +20,10 @@ public class MetodoTres extends AppCompatActivity {
 
     private EditText txtTamano,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
-    private Integer tamano, basta = 0;
+    private Integer tamano, basta = 0,x = 1 , y = 1;
     private TextView resultado;
     private Button botonTamano, botonGauss, botonMatriz;
+    private String valores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,7 @@ public class MetodoTres extends AppCompatActivity {
                         botonTamano.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
+                    resultado.setText("Posicion: " + x +" , "+ y);
                 }
 
             }
@@ -98,7 +100,28 @@ public class MetodoTres extends AppCompatActivity {
                             botonGauss.setEnabled(true);
                         }
                     }
+
+                    valores = "[ ";
+                    if (x % (tamano+1) == 0) {
+                        x++;
+                        y = 0;
+                    }else{
+                        y++;
+                    }
+                    for(int i=0;i<arreglo.size();i++) {
+                        if(i %(tamano + 1) == 0 && i>0)
+                            valores += "\n";
+                        else if(i % tamano == 0)
+                            valores += arreglo.get(i)  + " , ";
+                        else if(i<arreglo.size()-1)
+                            valores += arreglo.get(i) + " , ";
+                        else
+                            valores += arreglo.get(i);
+                    }
+                    valores += " ]";
+                    resultado.setText("Posicion: " + y +" , "+ y + "\n\nDatos:\n"+ valores);
                 }
+
 
                 //resultado.setText("Insertar valor: ");
 

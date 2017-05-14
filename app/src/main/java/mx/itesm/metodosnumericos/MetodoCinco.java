@@ -20,10 +20,11 @@ public class MetodoCinco extends AppCompatActivity {
 
     //private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
-    private Integer tamano, basta = 0;
+    private Integer tamano, basta = 0,x = 1 , y = 1;
     private TextView resultado;
     private Button botonTamano,botonJordan,boton;
     private EditText listaTxt, tamanoTxt;
+    private String valores = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class MetodoCinco extends AppCompatActivity {
 
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoGJ);
+
         if(botonTamano.isEnabled() && boton.isEnabled()){
             if (botonJordan.isEnabled()){
                 botonJordan.setEnabled(false);
@@ -70,6 +72,25 @@ public class MetodoCinco extends AppCompatActivity {
                             botonJordan.setEnabled(true);
                         }
                     }
+                    valores = "[ ";
+                    if (x % (tamano+1) == 0) {
+                        x++;
+                        y = 0;
+                    }else{
+                        y++;
+                    }
+                    for(int i=0;i<arreglo.size();i++) {
+                        if(i %(tamano + 1) == 0 && i>0)
+                            valores += "\n";
+                        else if(i % tamano == 0)
+                            valores += arreglo.get(i)  + " , ";
+                        else if(i<arreglo.size()-1)
+                            valores += arreglo.get(i) + " , ";
+                        else
+                            valores += arreglo.get(i);
+                    }
+                    valores += " ]";
+                    resultado.setText("Posicion: " + y +" , "+ y + "\n\nDatos:\n"+ valores);
                 }
 
 
@@ -141,6 +162,7 @@ public class MetodoCinco extends AppCompatActivity {
                         botonTamano.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
+                    resultado.setText("Posicion: " + x +" , "+ y);
                 }
 
             }

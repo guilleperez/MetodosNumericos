@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -22,9 +23,10 @@ public class MetodoUno extends AppCompatActivity {
 
     private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
-    private Integer tamano, basta = 0;
+    private Integer tamano, basta = 0,x = 1 , y = 1;
     private TextView resultado;
     private Button botonTamano,botonCramer,boton;
+    private String valores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,27 @@ public class MetodoUno extends AppCompatActivity {
                             botonCramer.setEnabled(true);
                         }
                     }
+                    //Log.d("******" , arreglo.toString());
+                    valores ="[ ";
+                    if (y % (tamano+1) == 0) {
+                        x++;
+                        y = 1;
+                    }else{
+                        y++;
+                    }
+
+                    for(int i=1;i<=arreglo.size();i++) {
+                        if (i == arreglo.size())
+                            valores += arreglo.get(i - 1) + " ]";
+                        else if (i % (tamano + 1) == 0 && i > 1)
+                            valores += arreglo.get(i - 1) + "\n";
+                        else if (i < arreglo.size())
+                            valores += arreglo.get(i - 1) + " , ";
+
+                    }
+                    resultado.setText("Tamaño: " + tamano + " x " + tamano +"\n\n" +
+                            "Posicion: " + x +" , "+ y + "\n\nMatriz:\n"+ valores);
+
                 }
 
 
@@ -159,11 +182,13 @@ public class MetodoUno extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "La matriz no puede ser de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                 } else {
                     ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                     if (botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
+                    resultado.setText("Tamaño: " + getInput + "x" + getInput +
+                            "\n\nPosicion: " + x +" , "+ y);
                 }
 
             }

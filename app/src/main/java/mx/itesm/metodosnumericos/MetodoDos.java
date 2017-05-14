@@ -22,7 +22,7 @@ public class MetodoDos extends AppCompatActivity {
     private ArrayList<String> arregloL = new ArrayList<String>();
 
 
-    private Integer tamano, bastaL = 0, bastaM = 0;
+    private Integer tamano, bastaL = 0, bastaM = 0,x = 1 , y = 1, xl = 1, yl =1;
     private TextView resultado;
     private Button botonTamano, calcular, botonDatos, botonError, botonLista;
     private Float error;
@@ -50,6 +50,13 @@ public class MetodoDos extends AppCompatActivity {
         //Resultado
         resultado = (TextView) findViewById(R.id.resultadoGJ);
 
+        if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
+            if (calcular.isEnabled()){
+                calcular.setEnabled(false);
+            }
+        }
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +82,7 @@ public class MetodoDos extends AppCompatActivity {
                         botonTamano.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
+                    resultado.setText("Posicion Matriz: " + x +"x"+ y + "\n\nPosicion Lista: " + xl +"x"+ yl);
                 }
 
 
@@ -98,6 +106,8 @@ public class MetodoDos extends AppCompatActivity {
                         }
                     }
                 }
+                resultado.setText("Posicion Matriz: " + x +"x"+ y +  "\n\nDatos Matriz:\n"+ arregloM.toString() + "\n\n" +
+                        "Posicion Lista: " + xl +"x"+ yl+ "\n\nDatos Lista\n" + arregloL.toString());
             }
         });
 
@@ -139,6 +149,9 @@ public class MetodoDos extends AppCompatActivity {
                             botonDatos.setEnabled(false);
                         }
                     }
+
+                    resultado.setText("Posicion Matriz: " + x +"x"+ y +  "\n\nDatos Matriz:\n"+ arregloM.toString() + "\n\n" +
+                            "Posicion Lista: " + xl +"x"+ yl+ "\n\nDatos Lista\n" + arregloL.toString());
                 }
 
                 //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
