@@ -51,11 +51,15 @@ public class MetodoDos extends AppCompatActivity {
         resultado = (TextView) findViewById(R.id.resultadoGS);
         resultado.setMovementMethod(new ScrollingMovementMethod());
 
-        if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
+        /*if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
             if (calcular.isEnabled()){
                 calcular.setEnabled(false);
             }
-        }
+        }*/
+        botonDatos.setEnabled(false);
+        botonLista.setEnabled(false);
+        botonError.setEnabled(false);
+        calcular.setEnabled(false);
 
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +85,7 @@ public class MetodoDos extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                     if (botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
+                        botonDatos.setEnabled(true);
                     }
                     tamano = Integer.parseInt(getInput);
                     resultado.setText("Tamaño Matriz: " + tamano +"x" + tamano+ "\n\nPosicion Matriz: " +
@@ -106,6 +111,7 @@ public class MetodoDos extends AppCompatActivity {
                     if (bastaL >= tamano) {
                         if (botonLista.isEnabled()) {
                             botonLista.setEnabled(false);
+                            botonError.setEnabled(true);
                         }
                     }
                 }
@@ -146,6 +152,7 @@ public class MetodoDos extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Error: " + getInput, Toast.LENGTH_LONG).show();
                     if (botonError.isEnabled()) {
                         botonError.setEnabled(false);
+                        calcular.setEnabled(true);
                     }
 
                     error = Float.parseFloat(getInput);
@@ -167,7 +174,8 @@ public class MetodoDos extends AppCompatActivity {
                     if (bastaM >= (tamano + 1) * tamano) {
                         if (botonDatos.isEnabled()) {
                             botonDatos.setEnabled(false);
-                            calcular.setEnabled(true);
+                            botonLista.setEnabled(true);
+                            //calcular.setEnabled(true);
                         }
                     }
 

@@ -39,11 +39,9 @@ public class Determinante extends AppCompatActivity {
         txtDos = (EditText)findViewById(R.id.tamanoGS);
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoGJ);
-        if(botonTamanho.isEnabled() && boton.isEnabled()){
-            if (botonDeterminante.isEnabled()){
-                botonDeterminante.setEnabled(false);
-            }
-        }
+
+        botonDeterminante.setEnabled(false);
+        boton.setEnabled(false);
 
         boton.setOnClickListener(new OnClickListener() {
             @Override
@@ -161,6 +159,7 @@ public class Determinante extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamanho.isEnabled()) {
                         botonTamanho.setEnabled(false);
+                        boton.setEnabled(true);
                     }
                     tamano = Integer.parseInt(getInput);
                     resultado.setText("Tamaño: " + tamano + "\n\nPosicion: " + x +" , "+ y);

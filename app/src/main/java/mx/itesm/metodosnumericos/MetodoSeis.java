@@ -52,11 +52,18 @@ public class MetodoSeis extends AppCompatActivity {
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoBr);
 
-        if(botonR.isEnabled() && botonS.isEnabled() && botonError.isEnabled() && botonEcuacion.isEnabled() && botonTamaño.isEnabled()){
+       /* if(botonR.isEnabled() && botonS.isEnabled() && botonError.isEnabled() && botonEcuacion.isEnabled() && botonTamaño.isEnabled()){
             if (calcular.isEnabled()){
                 calcular.setEnabled(false);
             }
-        }
+        }*/
+        botonR.setEnabled(false);
+        botonEcuacion.setEnabled(false);
+        botonError.setEnabled(false);
+        botonS.setEnabled(false);
+        calcular.setEnabled(false);
+
+
 
         //Back
         back = (ImageButton)findViewById(R.id.back);
@@ -84,13 +91,10 @@ public class MetodoSeis extends AppCompatActivity {
                     if (basta >= tamaño) {
                         if (botonEcuacion.isEnabled()) {
                             botonEcuacion.setEnabled(false);
+                            botonR.setEnabled(true);
                         }
                     }
-                    if (!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && botonS.isEnabled()) {
-                        if (!calcular.isEnabled()) {
-                            calcular.setEnabled(true);
-                        }
-                    }
+
                     String s= "";
                     if (x < tamaño) {
                         x++;
@@ -124,11 +128,7 @@ public class MetodoSeis extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "La ecuación es de grado "+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamaño.isEnabled()) {
                         botonTamaño.setEnabled(false);
-                    }
-                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
-                        if (!calcular.isEnabled()) {
-                            calcular.setEnabled(true);
-                        }
+                        botonEcuacion.setEnabled(true);
                     }
                     tamaño = Integer.parseInt(getInput)+1;
                     resultado.setText("Insertar: x" + x);
@@ -149,12 +149,13 @@ public class MetodoSeis extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Error: "+getInput,Toast.LENGTH_LONG).show();
                     if(botonError.isEnabled()) {
                         botonError.setEnabled(false);
+                        calcular.setEnabled(true);
                     }
-                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
+                    /*if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
                         if (!calcular.isEnabled()) {
                             calcular.setEnabled(true);
                         }
-                    }
+                    }*/
                     error = Double.parseDouble(getInput);
                 }
             }
@@ -172,11 +173,7 @@ public class MetodoSeis extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonR.isEnabled()) {
                         botonR.setEnabled(false);
-                    }
-                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
-                        if (!calcular.isEnabled()) {
-                            calcular.setEnabled(true);
-                        }
+                        botonS.setEnabled(true);
                     }
                     r = Double.parseDouble(getInput);
                     resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r);
@@ -198,11 +195,7 @@ public class MetodoSeis extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonS.isEnabled()) {
                         botonS.setEnabled(false);
-                    }
-                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
-                        if (!calcular.isEnabled()) {
-                            calcular.setEnabled(true);
-                        }
+                        botonError.setEnabled(true);
                     }
                     s = Double.parseDouble(getInput);
                     resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r + "\ns= " + s);

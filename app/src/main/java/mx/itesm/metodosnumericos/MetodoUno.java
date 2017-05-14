@@ -41,11 +41,10 @@ public class MetodoUno extends AppCompatActivity {
         txtDos = (EditText) findViewById(R.id.tamanoGS);
         //Resultado
         resultado = (TextView) findViewById(R.id.resultadoGJ);
-        if (botonTamano.isEnabled() && boton.isEnabled()) {
-            if (botonCramer.isEnabled()) {
-                botonCramer.setEnabled(false);
-            }
-        }
+
+        boton.setEnabled(false);
+        botonCramer.setEnabled(false);
+
 
         back.setOnClickListener(new OnClickListener() {
             @Override
@@ -182,6 +181,7 @@ public class MetodoUno extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                     if (botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
+                        boton.setEnabled(true);
                     }
                     tamano = Integer.parseInt(getInput);
                     resultado.setText("Tamaño: " + getInput + "x" + getInput +

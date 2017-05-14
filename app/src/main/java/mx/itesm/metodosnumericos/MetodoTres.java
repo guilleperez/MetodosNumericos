@@ -43,11 +43,9 @@ public class MetodoTres extends AppCompatActivity {
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoG);
 
-        if(botonTamano.isEnabled() && botonMatriz.isEnabled()){
-            if (botonGauss.isEnabled()){
-                botonGauss.setEnabled(false);
-            }
-        }
+        botonGauss.setEnabled(false);
+        botonMatriz.setEnabled(false);
+
 
 
         back.setOnClickListener(new OnClickListener() {
@@ -75,6 +73,7 @@ public class MetodoTres extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
+                        botonMatriz.setEnabled(true);
                     }
                     tamano = Integer.parseInt(getInput);
                     resultado.setText("Tamaño: " + tamano + "\n\nPosicion: " + x +" , "+ y);
@@ -174,6 +173,9 @@ public class MetodoTres extends AppCompatActivity {
                     botonTamano.setEnabled(true);
                     botonGauss.setEnabled(true);
                     botonMatriz.setEnabled(true);
+                }
+                if(botonGauss.isEnabled()){
+                    botonGauss.setEnabled(false);
                 }
 
             }

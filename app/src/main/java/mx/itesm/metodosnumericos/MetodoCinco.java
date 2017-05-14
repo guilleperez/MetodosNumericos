@@ -45,11 +45,8 @@ public class MetodoCinco extends AppCompatActivity {
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoGJ);
 
-        if(botonTamano.isEnabled() && boton.isEnabled()){
-            if (botonJordan.isEnabled()){
-                botonJordan.setEnabled(false);
-            }
-        }
+        boton.setEnabled(false);
+        botonJordan.setEnabled(false);
 
         boton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -157,6 +154,7 @@ public class MetodoCinco extends AppCompatActivity {
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
+                        boton.setEnabled(true);
                     }
                     tamano = Integer.parseInt(getInput);
                     resultado.setText("Tamaño: " + tamano + " x " + tamano + "\n\nPosicion: " + x +" , "+ y);
