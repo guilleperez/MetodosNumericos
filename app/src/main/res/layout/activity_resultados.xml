@@ -8,17 +8,17 @@
 
     <TextView
         android:id="@+id/resultado"
-        android:layout_width="300dp"
+        android:layout_width="280dp"
         android:layout_height="500dp"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textSize="17sp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/back"
         android:layout_toEndOf="@+id/back"
-        android:layout_marginLeft="13dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginStart="13dp"
         android:maxLines = "30"
-        android:scrollbars = "vertical" />
+        android:scrollbars = "vertical"/>
 
 <ImageButton
     android:id="@+id/back"

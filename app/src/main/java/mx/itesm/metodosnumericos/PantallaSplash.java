@@ -8,17 +8,24 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class PantallaSplash extends Activity {
 
+    private TextView resultado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pantalla_splash);
         // Hide the Title bar of this activity screen
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
 
+        resultado = (TextView) findViewById(R.id.info);
+        resultado.setText("Instituto Tecnológico y de Estudios Superiores de Monterrey\nCampus Estado de México " +
+                        "\n\nProyecto Final\nMétodos Numéricos y Algebra Lineal\nMarco Antonio Reyes Guzmán\n\nJosé Antonio Malo de la Peña " +
+                        "\nA01371454\nGuillermo Pérez Trueba\nA01377162");
 
-        setContentView(R.layout.activity_pantalla_splash);
+
 
         Button boton = (Button) findViewById(R.id.inicio);
         boton.setOnClickListener(new View.OnClickListener() {
