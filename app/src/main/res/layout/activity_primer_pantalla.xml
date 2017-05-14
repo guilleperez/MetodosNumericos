@@ -1,84 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-  >
+    android:weightSum="1"
+    tools:context="mx.itesm.metodosnumericos.PrimerPantalla">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
     <Button
         android:id="@+id/botonUno"
-        android:layout_width="300dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_column="1"
-        android:layout_marginTop="32dp"
-        android:layout_row="12"
-        android:layout_weight="1"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="CRAMER"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/botonCinco"
-        android:layout_alignStart="@+id/botonCinco" />
-
-    <Button
-        android:id="@+id/botonDos"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@android:color/darker_gray"
+        android:text="Cramer" />
+
+    <Button
         android:text="Gauss Seidel"
+        android:layout_width="wrap_content"
+        android:id="@+id/botonDos"
         android:layout_below="@+id/botonUno"
-        android:layout_alignLeft="@+id/botonUno"
-        android:layout_alignStart="@+id/botonUno" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:layout_marginTop="10dp"
+        />
+
 
     <Button
-        android:id="@+id/botonTres"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@android:color/darker_gray"
         android:text="Gauss"
+        android:layout_width="wrap_content"
+        android:id="@+id/botonTres"
         android:layout_below="@+id/botonDos"
-        android:layout_alignLeft="@+id/botonDos"
-        android:layout_alignStart="@+id/botonDos" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:layout_marginTop="10dp"
+        />
 
 
     <Button
-        android:id="@+id/botonCuatro"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/botonTres"
-        android:layout_alignStart="@+id/botonTres"
+        android:text="Determinante"
+        android:layout_width="wrap_content"
         android:layout_below="@+id/botonTres"
-        android:layout_marginTop="21dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/botonCuatro"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="Determinante" />
+        android:layout_marginTop="10dp"
+        />
 
     <Button
-        android:id="@+id/botonCinco"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_alignLeft="@+id/botonSeis"
-        android:layout_alignStart="@+id/botonSeis"
+        android:text="Gauss Jordan"
+        android:layout_width="wrap_content"
         android:layout_below="@+id/botonCuatro"
-        android:layout_marginTop="16dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/botonCinco"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="GaussJordan" />
+        android:layout_marginTop="10dp"
+        />
 
     <Button
-        android:id="@+id/botonSeis"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
+        android:text="Bairstow"
+        android:layout_width="wrap_content"
         android:layout_below="@+id/botonCinco"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/botonSeis"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_height="60dp"
         android:backgroundTint="@android:color/darker_gray"
-        android:text="Bairstow" />
+        android:layout_marginTop="10dp"
+        />
 
-</LinearLayout>
-</ScrollView>
+</RelativeLayout>
