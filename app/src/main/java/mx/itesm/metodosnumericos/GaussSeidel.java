@@ -24,7 +24,6 @@ public class GaussSeidel {
                     T[i][j] = M[R[i]][j];
             }
 
-            M = T;
 
             return true;
         }

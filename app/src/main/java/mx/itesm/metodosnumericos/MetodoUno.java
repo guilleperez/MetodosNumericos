@@ -50,6 +50,14 @@ public class MetodoUno extends AppCompatActivity {
             }
         }
 
+        back.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inti = new Intent(getBaseContext(), PrimerPantalla.class);
+                startActivity(inti);
+            }
+        });
+
         boton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,14 +103,6 @@ public class MetodoUno extends AppCompatActivity {
         });
 
 
-        back.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inti = new Intent(getBaseContext(), PrimerPantalla.class);
-                startActivity(inti);
-            }
-        });
-
         botonCramer.setOnClickListener(new OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
@@ -128,7 +128,7 @@ public class MetodoUno extends AppCompatActivity {
                 String res = "Matriz: \n";
                 for (int i = 0; i < a.length; i++)
                     res += Arrays.toString(a[i]) +"\n";
-                res += "\n\n Metodo: \n Cramer \n\n Resultado:\n";
+                res += "\n Metodo: \n Cramer \n\n Resultado:\n";
 
                 float[] cramer = cm.cramer(a, b);
                 if (cramer != null) {

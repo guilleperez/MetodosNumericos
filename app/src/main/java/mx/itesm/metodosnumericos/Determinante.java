@@ -65,25 +65,25 @@ public class Determinante extends AppCompatActivity {
                         }
                     }
 
-                    valores = "[ ";
-                    if (x % (tamano+1) == 0) {
+                    valores ="[ ";
+                    if (y % (tamano+1) == 0) {
                         x++;
-                        y = 0;
+                        y = 1;
                     }else{
                         y++;
                     }
-                    for(int i=0;i<arreglo.size();i++) {
-                        if(i %(tamano + 1) == 0 && i>0)
-                            valores += "\n";
-                        else if(i % tamano == 0)
-                            valores += arreglo.get(i)  + " , ";
-                        else if(i<arreglo.size()-1)
-                            valores += arreglo.get(i) + " , ";
-                        else
-                            valores += arreglo.get(i);
+
+                    for(int i=1;i<=arreglo.size();i++) {
+                        if (i == arreglo.size())
+                            valores += arreglo.get(i - 1) + " ]";
+                        else if (i % (tamano + 1) == 0 && i > 1)
+                            valores += arreglo.get(i - 1) + "\n";
+                        else if (i < arreglo.size())
+                            valores += arreglo.get(i - 1) + " , ";
+
                     }
-                    valores += " ]";
-                    resultado.setText("Posicion: " + y +" , "+ y + "\n\nDatos:\n"+ valores);
+                    resultado.setText("Tamaño: " + tamano + " x " + tamano +"\n\n" +
+                            "Posicion: " + x +" , "+ y + "\n\nMatriz:\n"+ valores);
 
                 }
 
@@ -165,7 +165,7 @@ public class Determinante extends AppCompatActivity {
                         botonTamanho.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
-                    resultado.setText("Posicion: " + x +" , "+ y);
+                    resultado.setText("Tamaño: " + tamano + "\n\nPosicion: " + x +" , "+ y);
                 }
 
             }

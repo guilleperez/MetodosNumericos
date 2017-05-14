@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -22,10 +23,11 @@ public class MetodoDos extends AppCompatActivity {
     private ArrayList<String> arregloL = new ArrayList<String>();
 
 
-    private Integer tamano, bastaL = 0, bastaM = 0,x = 1 , y = 1, xl = 1, yl =1;
+    private Integer tamano, bastaL = 0, bastaM = 0,x = 1 , y = 1, xl = 1;
     private TextView resultado;
     private Button botonTamano, calcular, botonDatos, botonError, botonLista;
     private Float error;
+    private String valores;
 
 
     @Override
@@ -48,7 +50,8 @@ public class MetodoDos extends AppCompatActivity {
         txtError = (EditText) findViewById(R.id.errorTxt);
         listaTxt = (EditText) findViewById(R.id.matrizzGJ);
         //Resultado
-        resultado = (TextView) findViewById(R.id.resultadoGJ);
+        resultado = (TextView) findViewById(R.id.resultado);
+        resultado.setMovementMethod(new ScrollingMovementMethod());
 
         if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
             if (calcular.isEnabled()){
@@ -64,7 +67,7 @@ public class MetodoDos extends AppCompatActivity {
                 startActivity(inti);
             }
         });
-//Hola
+
         botonTamano.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,15 +77,17 @@ public class MetodoDos extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Dato faltante", Toast.LENGTH_SHORT).show();
                 } else if (getInput.trim().equals("0") || getInput.trim().equals("1")) {
                     ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz no puede ser de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "La matriz no puede ser de " + getInput + " , " + getInput, Toast.LENGTH_LONG).show();
                 } else {
                     ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "La matriz es de " + getInput + " , " + getInput, Toast.LENGTH_LONG).show();
                     if (botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
-                    resultado.setText("Posicion Matriz: " + x +"x"+ y + "\n\nPosicion Lista: " + xl +"x"+ yl);
+                    resultado.setText("Tamaño Matriz: " + tamano +"x" + tamano+ "\n\nPosicion Matriz: " +
+                            x +" , "+ y + " \n\nTamaño Lista: " + tamano +
+                            "\n\nPosicion Lista: " + xl);
                 }
 
 
@@ -106,8 +111,25 @@ public class MetodoDos extends AppCompatActivity {
                         }
                     }
                 }
-                resultado.setText("Posicion Matriz: " + x +"x"+ y +  "\n\nDatos Matriz:\n"+ arregloM.toString() + "\n\n" +
-                        "Posicion Lista: " + xl +"x"+ yl+ "\n\nDatos Lista\n" + arregloL.toString());
+
+                xl++;
+                if (arregloM.size()==0)
+                    valores = "[]";
+                else {
+                    valores = "[ ";
+                    for (int i = 1; i <= arregloM.size(); i++) {
+                        if (i == arregloM.size())
+                            valores += arregloM.get(i - 1) + " ]";
+                        else if (i % (tamano + 1) == 0 && i > 1)
+                            valores += arregloM.get(i - 1) + "\n";
+                        else if (i < arregloM.size())
+                            valores += arregloM.get(i - 1) + " , ";
+
+                    }
+                }
+                resultado.setText("Tamaño Matriz: " + tamano +"x" + tamano+ "\n\nPosicion Matriz: " +
+                        x +" , "+ y + "\n\nMatriz:\n" + valores + " \n\nTamaño Lista: "
+                        + tamano + "\n\nPosicion Lista: " + xl + "\n\nLista: " + arregloL.toString());
             }
         });
 
@@ -150,8 +172,27 @@ public class MetodoDos extends AppCompatActivity {
                         }
                     }
 
-                    resultado.setText("Posicion Matriz: " + x +"x"+ y +  "\n\nDatos Matriz:\n"+ arregloM.toString() + "\n\n" +
-                            "Posicion Lista: " + xl +"x"+ yl+ "\n\nDatos Lista\n" + arregloL.toString());
+                    valores ="[ ";
+                    if (y % (tamano+1) == 0) {
+                        x++;
+                        y = 1;
+                    }else{
+                        y++;
+                    }
+
+                    for(int i=1;i<=arregloM.size();i++) {
+                        if (i == arregloM.size())
+                            valores += arregloM.get(i - 1) + " ]";
+                        else if (i % (tamano + 1) == 0 && i > 1)
+                            valores += arregloM.get(i - 1) + "\n";
+                        else if (i < arregloM.size())
+                            valores += arregloM.get(i - 1) + " , ";
+
+                    }
+                    resultado.setText("Tamaño Matriz: " + tamano +" x " +
+                            tamano+ "\n\nPosicion Matriz:" + x +" , "+ y + "\n\nMatriz:\n" +
+                            valores + " \n\nTamaño Lista: " + tamano + "\n\nPosicion Lista: "
+                            + xl +  "\n\nLista: " + arregloL.toString());
                 }
 
                 //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
@@ -188,7 +229,7 @@ public class MetodoDos extends AppCompatActivity {
                 String res = "Matriz: \n";
                 for (int i = 0; i < M.length; i++)
                     res += Arrays.toString(M[i]) +"\n";
-                res += "\n\n Metodo: \n Gauss Seidel \n\n Resultado:\n";
+                res += "\n Metodo: \n Gauss Seidel \n\n Resultado:\n";
 
                 if (!gausSeidel.makeDominant(M)) {
                     res += "No se puede calcular; Diagonal no dominante";

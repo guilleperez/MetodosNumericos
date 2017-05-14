@@ -72,12 +72,12 @@ public class MetodoTres extends AppCompatActivity {
                 }
                 else{
                     ((EditText) findViewById(R.id.tamanoG)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
                     }
                     tamano = Integer.parseInt(getInput);
-                    resultado.setText("Posicion: " + x +" , "+ y);
+                    resultado.setText("Tamaño: " + tamano + "\n\nPosicion: " + x +" , "+ y);
                 }
 
             }
@@ -101,25 +101,26 @@ public class MetodoTres extends AppCompatActivity {
                         }
                     }
 
-                    valores = "[ ";
-                    if (x % (tamano+1) == 0) {
+                    valores ="[ ";
+                    if (y % (tamano+1) == 0) {
                         x++;
-                        y = 0;
+                        y = 1;
                     }else{
                         y++;
                     }
-                    for(int i=0;i<arreglo.size();i++) {
-                        if(i %(tamano + 1) == 0 && i>0)
-                            valores += "\n";
-                        else if(i % tamano == 0)
-                            valores += arreglo.get(i)  + " , ";
-                        else if(i<arreglo.size()-1)
-                            valores += arreglo.get(i) + " , ";
-                        else
-                            valores += arreglo.get(i);
+
+                    for(int i=1;i<=arreglo.size();i++) {
+                        if (i == arreglo.size())
+                            valores += arreglo.get(i - 1) + " ]";
+                        else if (i % (tamano + 1) == 0 && i > 1)
+                            valores += arreglo.get(i - 1) + "\n";
+                        else if (i < arreglo.size())
+                            valores += arreglo.get(i - 1) + " , ";
+
                     }
-                    valores += " ]";
-                    resultado.setText("Posicion: " + y +" , "+ y + "\n\nDatos:\n"+ valores);
+                    resultado.setText("Tamaño: " + tamano + " x " + tamano +"\n\n" +
+                            "Posicion: " + x +" , "+ y + "\n\nMatriz:\n"+ valores);
+
                 }
 
 
@@ -153,7 +154,8 @@ public class MetodoTres extends AppCompatActivity {
                     res += Arrays.toString(G[i])+"\n";
                 res += "\n Metodo: \n Gauss \n\n Resultado:\n";
                 if (g.calcular()) {
-                    res +=  Arrays.toString(g.getRes())+"\n";
+                    for (int i = 0; i < g.getRes().length; i++)
+                        res += g.getRes()[i] +"\n";
                     //resultado.setText("Resultado = \n" +  Arrays.toString(g.getRes()));
                 } else {
                     //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
