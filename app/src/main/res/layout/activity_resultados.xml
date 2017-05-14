@@ -8,28 +8,28 @@
 
     <TextView
         android:id="@+id/resultado"
-        android:layout_width="280dp"
-        android:layout_height="500dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:gravity="center"
-        android:textSize="17sp"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/back"
-        android:layout_toEndOf="@+id/back"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="13dp"
-        android:maxLines = "30"
-        android:scrollbars = "vertical"/>
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
 
 <ImageButton
     android:id="@+id/back"
     android:layout_width="50dp"
     android:layout_height="50dp"
     android:background="@mipmap/back"
-    android:layout_marginLeft="15dp"
-    android:layout_alignBottom="@+id/resultado"
+    android:layout_marginLeft="13dp"
+    android:layout_marginStart="13dp"
+    android:layout_marginBottom="12dp"
+    android:layout_alignParentBottom="true"
     android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:layout_marginStart="15dp"
-    android:layout_marginBottom="13dp" />
+    android:layout_alignParentStart="true" />
 
 </RelativeLayout>

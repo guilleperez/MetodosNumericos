@@ -1,12 +1,9 @@
 package mx.itesm.metodosnumericos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -14,7 +11,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MetodoCinco extends AppCompatActivity {
 
@@ -32,7 +28,7 @@ public class MetodoCinco extends AppCompatActivity {
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_cinco);
         //dibujoMatriz = new TableLayout(this);
-        tamanoTxt = (EditText) findViewById(R.id.tamanoGJ);
+        tamanoTxt = (EditText) findViewById(R.id.tamanoGS);
         //espacioMatriz = (RelativeLayout) findViewById(R.id.matriz);
         tamano = 0;
         //hayMatriz = false;
@@ -44,7 +40,7 @@ public class MetodoCinco extends AppCompatActivity {
 
         //Datos
         listaTxt = (EditText)findViewById(R.id.matrizzGJ);
-        tamanoTxt = (EditText)findViewById(R.id.tamanoGJ);
+        tamanoTxt = (EditText)findViewById(R.id.tamanoGS);
 
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoGJ);
@@ -72,7 +68,7 @@ public class MetodoCinco extends AppCompatActivity {
                             botonJordan.setEnabled(true);
                         }
                     }
-                    valores ="[ ";
+                    valores ="";
                     if (y % (tamano+1) == 0) {
                         x++;
                         y = 1;
@@ -82,7 +78,7 @@ public class MetodoCinco extends AppCompatActivity {
 
                     for(int i=1;i<=arreglo.size();i++) {
                         if (i == arreglo.size())
-                            valores += arreglo.get(i - 1) + " ]";
+                            valores += arreglo.get(i - 1);
                         else if (i % (tamano + 1) == 0 && i > 1)
                             valores += arreglo.get(i - 1) + "\n";
                         else if (i < arreglo.size())
@@ -125,7 +121,7 @@ public class MetodoCinco extends AppCompatActivity {
                     }
                 }
 
-                String res =  "Metodo: \n Gauss Jordan \n\n Resultado:\n" +gj.calcular(G);
+                String res =  "Metodo:\nGauss Jordan\n\nSolucion:\n" +gj.calcular(G);
                 //Log.d("*************",res);
                 sendMessageIntent(res);
 
@@ -152,11 +148,11 @@ public class MetodoCinco extends AppCompatActivity {
                 if(getInput == null||getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(),"Dato faltante", Toast.LENGTH_SHORT).show();
                 }else if (getInput.trim().equals("0")||getInput.trim().equals("1")){
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGS)).setText(" ");
                     Toast.makeText(getBaseContext(),"La matriz no puede ser de "+getInput+"x"+getInput, Toast.LENGTH_LONG).show();
                 }
                 else{
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGS)).setText(" ");
                     //Toast.makeText(getBaseContext(), "La matriz es de "+getInput+"x"+getInput,Toast.LENGTH_LONG).show();
                     if(botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);

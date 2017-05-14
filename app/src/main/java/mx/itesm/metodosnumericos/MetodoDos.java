@@ -1,12 +1,10 @@
 package mx.itesm.metodosnumericos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -23,7 +21,7 @@ public class MetodoDos extends AppCompatActivity {
     private ArrayList<String> arregloL = new ArrayList<String>();
 
 
-    private Integer tamano, bastaL = 0, bastaM = 0,x = 1 , y = 1, xl = 1;
+    private Integer tamano, bastaL = 0, bastaM = 0, x = 1, y = 1, xl = 1;
     private TextView resultado;
     private Button botonTamano, calcular, botonDatos, botonError, botonLista;
     private Float error;
@@ -38,19 +36,19 @@ public class MetodoDos extends AppCompatActivity {
         setContentView(R.layout.activity_metodo_dos);
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
-        botonDatos = (Button) findViewById(R.id.btnMatriz);
+        botonDatos = (Button) findViewById(R.id.enterMatrizGS);
         calcular = (Button) findViewById(R.id.gauss_seidel);
-        botonTamano = (Button) findViewById(R.id.btnTamano);
+        botonTamano = (Button) findViewById(R.id.enterTamGS);
         botonError = (Button) findViewById(R.id.botonError);
-        botonLista = (Button) findViewById(R.id.btnLista);
+        botonLista = (Button) findViewById(R.id.btnListaGS);
 
         //Datos
-        numerosTxt = (EditText) findViewById(R.id.numero);
-        tamanoTxt = (EditText) findViewById(R.id.tamanoGJ);
+        numerosTxt = (EditText) findViewById(R.id.matrizGS);
+        tamanoTxt = (EditText) findViewById(R.id.tamanoGS);
         txtError = (EditText) findViewById(R.id.errorTxt);
-        listaTxt = (EditText) findViewById(R.id.matrizzGJ);
+        listaTxt = (EditText) findViewById(R.id.listaGS);
         //Resultado
-        resultado = (TextView) findViewById(R.id.resultado);
+        resultado = (TextView) findViewById(R.id.resultadoGS);
         resultado.setMovementMethod(new ScrollingMovementMethod());
 
         if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
@@ -76,11 +74,11 @@ public class MetodoDos extends AppCompatActivity {
                 if (getInput == null || getInput.trim().equals("")) {
                     Toast.makeText(getBaseContext(), "Dato faltante", Toast.LENGTH_SHORT).show();
                 } else if (getInput.trim().equals("0") || getInput.trim().equals("1")) {
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGS)).setText(" ");
                     Toast.makeText(getBaseContext(), "La matriz no puede ser de " + getInput + " , " + getInput, Toast.LENGTH_LONG).show();
                 } else {
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
-                    Toast.makeText(getBaseContext(), "La matriz es de " + getInput + " , " + getInput, Toast.LENGTH_LONG).show();
+                    ((EditText) findViewById(R.id.tamanoGS)).setText(" ");
+                    Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                     if (botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);
                     }
@@ -102,7 +100,7 @@ public class MetodoDos extends AppCompatActivity {
                 if (getInput == null || getInput.trim().equals("")) {
                     Toast.makeText(getBaseContext(), "Dato faltante", Toast.LENGTH_SHORT).show();
                 } else {
-                    ((EditText) findViewById(R.id.matrizzGJ)).setText(" ");
+                    ((EditText) findViewById(R.id.listaGS)).setText(" ");
                     arregloL.add(getInput.trim());
                     bastaL += 1;
                     if (bastaL >= tamano) {
@@ -114,12 +112,12 @@ public class MetodoDos extends AppCompatActivity {
 
                 xl++;
                 if (arregloM.size()==0)
-                    valores = "[]";
+                    valores = "";
                 else {
                     valores = "[ ";
                     for (int i = 1; i <= arregloM.size(); i++) {
                         if (i == arregloM.size())
-                            valores += arregloM.get(i - 1) + " ]";
+                            valores += arregloM.get(i - 1);
                         else if (i % (tamano + 1) == 0 && i > 1)
                             valores += arregloM.get(i - 1) + "\n";
                         else if (i < arregloM.size())
@@ -163,16 +161,17 @@ public class MetodoDos extends AppCompatActivity {
                 if (getInput == null || getInput.trim().equals("")) {
                     Toast.makeText(getBaseContext(), "Dato faltante", Toast.LENGTH_SHORT).show();
                 } else {
-                    ((EditText) findViewById(R.id.numero)).setText(" ");
+                    ((EditText) findViewById(R.id.matrizGS)).setText(" ");
                     arregloM.add(getInput.trim());
                     bastaM += 1;
                     if (bastaM >= (tamano + 1) * tamano) {
                         if (botonDatos.isEnabled()) {
                             botonDatos.setEnabled(false);
+                            calcular.setEnabled(true);
                         }
                     }
 
-                    valores ="[ ";
+                    valores ="";
                     if (y % (tamano+1) == 0) {
                         x++;
                         y = 1;
@@ -182,15 +181,15 @@ public class MetodoDos extends AppCompatActivity {
 
                     for(int i=1;i<=arregloM.size();i++) {
                         if (i == arregloM.size())
-                            valores += arregloM.get(i - 1) + " ]";
+                            valores += arregloM.get(i - 1);
                         else if (i % (tamano + 1) == 0 && i > 1)
                             valores += arregloM.get(i - 1) + "\n";
                         else if (i < arregloM.size())
                             valores += arregloM.get(i - 1) + " , ";
 
                     }
-                    resultado.setText("Tamaño Matriz: " + tamano +" x " +
-                            tamano+ "\n\nPosicion Matriz:" + x +" , "+ y + "\n\nMatriz:\n" +
+                    resultado.setText("Tamaño Matriz: " + tamano +"x" +
+                            tamano+ "\n\nPosicion Matriz: " + x +" , "+ y + "\n\nMatriz:\n" +
                             valores + " \n\nTamaño Lista: " + tamano + "\n\nPosicion Lista: "
                             + xl +  "\n\nLista: " + arregloL.toString());
                 }
@@ -226,10 +225,10 @@ public class MetodoDos extends AppCompatActivity {
                     X[i] = Float.parseFloat(arregloL.get(i));
                 }
 
-                String res = "Matriz: \n";
+                String res = "Metodo: \nGauss Seidel\n\nMatriz: \n";
                 for (int i = 0; i < M.length; i++)
                     res += Arrays.toString(M[i]) +"\n";
-                res += "\n Metodo: \n Gauss Seidel \n\n Resultado:\n";
+                res += "\nResultado:\n";
 
                 if (!gausSeidel.makeDominant(M)) {
                     res += "No se puede calcular; Diagonal no dominante";

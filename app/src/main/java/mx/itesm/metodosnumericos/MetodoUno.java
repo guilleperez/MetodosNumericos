@@ -1,15 +1,12 @@
 package mx.itesm.metodosnumericos;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -41,7 +38,7 @@ public class MetodoUno extends AppCompatActivity {
         botonTamano = (Button) findViewById(R.id.enterTamano);
         //Datos
         txt = (EditText) findViewById(R.id.matrizzGJ);
-        txtDos = (EditText) findViewById(R.id.tamanoGJ);
+        txtDos = (EditText) findViewById(R.id.tamanoGS);
         //Resultado
         resultado = (TextView) findViewById(R.id.resultadoGJ);
         if (botonTamano.isEnabled() && boton.isEnabled()) {
@@ -75,7 +72,7 @@ public class MetodoUno extends AppCompatActivity {
                         }
                     }
                     //Log.d("******" , arreglo.toString());
-                    valores ="[ ";
+                    valores ="";
                     if (y % (tamano+1) == 0) {
                         x++;
                         y = 1;
@@ -85,7 +82,7 @@ public class MetodoUno extends AppCompatActivity {
 
                     for(int i=1;i<=arreglo.size();i++) {
                         if (i == arreglo.size())
-                            valores += arreglo.get(i - 1) + " ]";
+                            valores += arreglo.get(i - 1);
                         else if (i % (tamano + 1) == 0 && i > 1)
                             valores += arreglo.get(i - 1) + "\n";
                         else if (i < arreglo.size())
@@ -125,10 +122,10 @@ public class MetodoUno extends AppCompatActivity {
                     }
                 }
 
-                String res = "Matriz: \n";
+                String res = "Metodo:\nCramer\n\nMatriz:\n";
                 for (int i = 0; i < a.length; i++)
                     res += Arrays.toString(a[i]) +"\n";
-                res += "\n Metodo: \n Cramer \n\n Resultado:\n";
+                res += "\nResultado:\n";
 
                 float[] cramer = cm.cramer(a, b);
                 if (cramer != null) {
@@ -178,10 +175,10 @@ public class MetodoUno extends AppCompatActivity {
                 if (getInput == null || getInput.trim().equals("")) {
                     Toast.makeText(getBaseContext(), "Dato faltante", Toast.LENGTH_SHORT).show();
                 } else if (getInput.trim().equals("0") || getInput.trim().equals("1")) {
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGS)).setText(" ");
                     Toast.makeText(getBaseContext(), "La matriz no puede ser de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                 } else {
-                    ((EditText) findViewById(R.id.tamanoGJ)).setText(" ");
+                    ((EditText) findViewById(R.id.tamanoGS)).setText(" ");
                     //Toast.makeText(getBaseContext(), "La matriz es de " + getInput + "x" + getInput, Toast.LENGTH_LONG).show();
                     if (botonTamano.isEnabled()) {
                         botonTamano.setEnabled(false);

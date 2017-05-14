@@ -13,15 +13,16 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        >
 
         <TableRow
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <EditText
-                android:id="@+id/tamanoGJ"
-                android:layout_width="wrap_content"
+                android:id="@+id/tamanoGS"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
                 android:layout_marginRight=".05dp"
@@ -29,10 +30,57 @@
                 android:ems="10"
                 android:hint="Tamaño"
                 android:inputType="number"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColorLink="@android:color/holo_blue_dark"
+                android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/matrizzGJ"
+                android:id="@+id/matrizGS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:hint="Matriz"
+                android:inputType="numberSigned|numberDecimal"
+                android:textAlignment="center"
+                android:textColorLink="@android:color/holo_blue_dark"
+                android:textSize="16sp" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_weight="0.05"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:id="@+id/enterTamGS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"
+                android:text="Insertar"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/enterMatrizGS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Insertar"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/listaGS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
@@ -40,49 +88,6 @@
                 android:layout_weight="0.5"
                 android:ems="10"
                 android:hint="Lista"
-                android:inputType="numberSigned|numberDecimal"
-                android:textAlignment="center" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight=".1">
-
-            <Button
-                android:id="@+id/btnTamano"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:text="Enter" />
-
-            <Button
-                android:id="@+id/btnLista"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:text="Enter" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <EditText
-                android:id="@+id/numero"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:ems="10"
-                android:hint="Matriz"
                 android:inputType="numberSigned|numberDecimal"
                 android:textAlignment="center" />
 
@@ -97,21 +102,22 @@
                 android:hint="Error"
                 android:inputType="numberDecimal"
                 android:textAlignment="center" />
-        </TableRow>
 
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_weight="0.05"
+            android:layout_height="match_parent" >
 
             <Button
-                android:id="@+id/btnMatriz"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:text="Enter" />
+            android:id="@+id/btnListaGS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft=".05dp"
+            android:layout_marginRight=".05dp"
+            android:layout_weight="0.5"
+            android:text="Enter" />
 
             <Button
                 android:id="@+id/botonError"
@@ -121,27 +127,25 @@
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
                 android:text="Error" />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
+
             <TextView
-                android:id="@+id/resultado"
+                android:id="@+id/resultadoGS"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="30"
-                android:scrollbars="vertical"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft=".5dp"
+                android:layout_marginRight=".5dp"
+                android:layout_weight="0.5"
                 android:textAlignment="center"
-                android:textSize="15sp"
-                android:layout_marginTop="235dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:textSize="17sp" />
         </TableRow>
-
     </TableLayout>
-
-
 
     <ImageButton
         android:id="@+id/back"

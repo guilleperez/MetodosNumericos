@@ -101,7 +101,7 @@ public class MetodoTres extends AppCompatActivity {
                         }
                     }
 
-                    valores ="[ ";
+                    valores ="";
                     if (y % (tamano+1) == 0) {
                         x++;
                         y = 1;
@@ -111,7 +111,7 @@ public class MetodoTres extends AppCompatActivity {
 
                     for(int i=1;i<=arreglo.size();i++) {
                         if (i == arreglo.size())
-                            valores += arreglo.get(i - 1) + " ]";
+                            valores += arreglo.get(i - 1) ;
                         else if (i % (tamano + 1) == 0 && i > 1)
                             valores += arreglo.get(i - 1) + "\n";
                         else if (i < arreglo.size())
@@ -149,10 +149,10 @@ public class MetodoTres extends AppCompatActivity {
                 }
 
                 Gauss g = new Gauss(G);
-                String res = "Matriz: \n";
+                String res = " Metodo:\nGauss\n\nMatriz:\n";
                 for (int i = 0; i <G.length; i++)
                     res += Arrays.toString(G[i])+"\n";
-                res += "\n Metodo: \n Gauss \n\n Resultado:\n";
+                res += "\nResultado:\n";
                 if (g.calcular()) {
                     for (int i = 0; i < g.getRes().length; i++)
                         res += g.getRes()[i] +"\n";
