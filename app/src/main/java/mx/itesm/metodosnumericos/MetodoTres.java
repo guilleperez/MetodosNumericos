@@ -100,6 +100,8 @@ public class MetodoTres extends AppCompatActivity {
                     }
                 }
 
+                //resultado.setText("Insertar valor: ");
+
 
                 //Toast.makeText(getBaseContext(), arreglo.toString(),Toast.LENGTH_LONG).show();
             }
@@ -126,11 +128,11 @@ public class MetodoTres extends AppCompatActivity {
                 String res = "";
                 if (g.calcular()) {
                     res =  Arrays.toString(g.getRes());
-                    resultado.setText("Resultado = \n" +  Arrays.toString(g.getRes()));
+                    //resultado.setText("Resultado = \n" +  Arrays.toString(g.getRes()));
                 } else {
                     //Toast.makeText(getBaseContext(), "El resultado de la operacion es " + res, Toast.LENGTH_LONG).show();
                     res = "No se puede calcular";
-                    resultado.setText("No se puede calcular");
+                    //resultado.setText("No se puede calcular");
 
                     // Log.d("********************** ", "RESULTADO  " + res);
                 }

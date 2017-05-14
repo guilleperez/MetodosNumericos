@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MetodoUno extends Activity {
+public class MetodoUno extends AppCompatActivity {
 
     private EditText txtDos,txt;
     private ArrayList<String> arreglo = new ArrayList<String>();
@@ -28,7 +29,7 @@ public class MetodoUno extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Hide the Title bar of this activity screen
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_uno);
 
         ImageButton back = (ImageButton) findViewById(R.id.back);

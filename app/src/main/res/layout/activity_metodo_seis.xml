@@ -6,144 +6,175 @@
     android:layout_height="match_parent"
     tools:context="mx.itesm.metodosnumericos.MetodoSeis">
 
-    <TextView
-        android:id="@+id/resultadoBr"
-        android:layout_width="380dp"
-        android:layout_height="230dp"
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        >
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+    <EditText
+        android:id="@+id/Grado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Grado"
+        android:inputType="number"
         android:textAlignment="center"
-        android:textSize="12sp"
-        android:layout_below="@+id/rButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
 
     <EditText
         android:id="@+id/EcuacionBr"
-        android:layout_width="90dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Ecuación"
         android:inputType="numberSigned|numberDecimal"
         android:textAlignment="center"
-        android:layout_alignBaseline="@+id/Grado"
-        android:layout_alignBottom="@+id/Grado"
-        android:layout_toRightOf="@+id/bairstowButton"
-        android:layout_toEndOf="@+id/bairstowButton" />
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+    </TableRow>
 
-    <Button
-        android:id="@+id/EcButton"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="Insertar"
-        android:layout_below="@+id/EcuacionBr"
-        android:layout_alignLeft="@+id/EcuacionBr"
-        android:layout_alignStart="@+id/EcuacionBr" />
-
-    <EditText
-        android:id="@+id/r"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="r"
-        android:inputType="numberSigned|numberDecimal"
-        android:textAlignment="center"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/bottonGrado"
-        android:layout_alignRight="@+id/bottonGrado"
-        android:layout_alignEnd="@+id/bottonGrado"
-        android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp" />
-
-    <Button
-        android:id="@+id/rButton"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="Insertar"
-        android:layout_below="@+id/r"
-        android:layout_alignLeft="@+id/r"
-        android:layout_alignStart="@+id/r" />
-
-    <EditText
-        android:id="@+id/s"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="s"
-        android:inputType="numberSigned|numberDecimal"
-        android:textAlignment="center"
-        android:layout_above="@+id/sButton"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/sButton"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:text="Insertar"
-        android:layout_above="@+id/resultadoBr"
-        android:layout_alignLeft="@+id/s"
-        android:layout_alignStart="@+id/s" />
-
-    <EditText
-        android:id="@+id/errorBr"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Error"
-        android:inputType="textPersonName|numberDecimal"
-        android:textAlignment="center"
-        android:layout_alignBaseline="@+id/s"
-        android:layout_alignBottom="@+id/s"
-        android:layout_toRightOf="@+id/sButton"
-        android:layout_toEndOf="@+id/sButton"
-        android:layout_marginLeft="21dp"
-        android:layout_marginStart="21dp" />
-
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@mipmap/back"
-        android:layout_alignTop="@+id/bairstowButton"
-        android:layout_alignLeft="@+id/rButton"
-        android:layout_alignStart="@+id/rButton" />
-
-    <Button
-        android:id="@+id/errButtonBr"
+    <TableRow
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="INsertar"
-        android:layout_below="@+id/errorBr"
-        android:layout_alignLeft="@+id/errorBr"
-        android:layout_alignStart="@+id/errorBr" />
-
-    <Button
-        android:id="@+id/bairstowButton"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="Calcular"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:id="@+id/Grado"
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Grado"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/bairstowButton"
-        android:layout_toStartOf="@+id/bairstowButton" />
+        android:layout_weight=".1"
+        android:layout_height="match_parent" >
+        >
 
     <Button
         android:id="@+id/bottonGrado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Insertar"
-        android:layout_below="@+id/Grado"
-        android:layout_alignLeft="@+id/Grado"
-        android:layout_alignStart="@+id/Grado" />
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
 
+    <Button
+        android:id="@+id/EcButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insertar"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+    <EditText
+        android:id="@+id/r"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="r"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+
+    <EditText
+        android:id="@+id/s"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="s"
+        android:inputType="numberSigned|numberDecimal"
+        android:textAlignment="center"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+
+    <EditText
+        android:id="@+id/errorBr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Error"
+        android:inputType="textPersonName|numberDecimal"
+        android:textAlignment="center"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_weight=".1"
+        android:layout_height="match_parent" >
+        >
+
+    <Button
+        android:id="@+id/rButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insertar"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+
+    <Button
+        android:id="@+id/sButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insertar"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+
+    <Button
+        android:id="@+id/errButtonBr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insertar"
+        android:layout_marginLeft=".05dp"
+        android:layout_marginRight=".05dp"
+        android:layout_weight="0.5"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <TextView
+            android:id="@+id/resultadoBr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="12sp" />
+    </TableRow>
+
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/bairstowButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@mipmap/back" />
 </RelativeLayout>
 

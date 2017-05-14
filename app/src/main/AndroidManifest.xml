@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="MetodosNumericos"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -30,7 +30,10 @@
         <activity android:name=".MetodoCinco"
             android:label="Gauss Jordan" />
         <activity android:name=".MetodoSeis"
-            android:label="Bairstow"></activity>
+            android:label="Bairstow"/>
+        <activity android:name=".Resultados"
+            android:label="Resultados">
+        </activity>
     </application>
 
 </manifest>
