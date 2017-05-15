@@ -4,6 +4,7 @@ package mx.itesm.metodosnumericos;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 //import android.view.Window;
 import android.widget.Button;
@@ -51,6 +52,8 @@ public class MetodoSeis extends AppCompatActivity {
 
         //Resultado
         resultado = (TextView)findViewById(R.id.resultadoBr);
+        resultado.setMovementMethod(new ScrollingMovementMethod());
+
 
        /* if(botonR.isEnabled() && botonS.isEnabled() && botonError.isEnabled() && botonEcuacion.isEnabled() && botonTamaño.isEnabled()){
             if (calcular.isEnabled()){
