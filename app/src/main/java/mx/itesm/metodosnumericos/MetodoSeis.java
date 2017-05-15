@@ -51,7 +51,7 @@ public class MetodoSeis extends AppCompatActivity {
         tamañotxt = (EditText)findViewById(R.id.Grado);
 
         //Resultado
-        resultado = (TextView)findViewById(R.id.resultadoBr);
+        resultado = (TextView)findViewById(R.id.resultadoGS);
         resultado.setMovementMethod(new ScrollingMovementMethod());
 
 
@@ -104,7 +104,7 @@ public class MetodoSeis extends AppCompatActivity {
                                 s+= (Double.parseDouble(ecuacion.get(i)) + "x" + i + " ");}
 
                         ec = s;
-                        resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec);
+                        resultado.setText("Grado: " +(tamaño-1)+ "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec);
                     }
                 }
             }
@@ -130,7 +130,7 @@ public class MetodoSeis extends AppCompatActivity {
                         botonEcuacion.setEnabled(true);
                     }
                     tamaño = Integer.parseInt(getInput)+1;
-                    resultado.setText("Insertar: x" + x);
+                    resultado.setText("Grado: " + (tamaño-1) + "\n\nInsertar: x" + x);
                 }
 
             }
@@ -175,7 +175,7 @@ public class MetodoSeis extends AppCompatActivity {
                         botonS.setEnabled(true);
                     }
                     r = Double.parseDouble(getInput);
-                    resultado.setText("Grado: " + tamaño + "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r);
+                    resultado.setText("Grado: " + (tamaño-1)+ "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r);
                 }
 
 
@@ -197,7 +197,8 @@ public class MetodoSeis extends AppCompatActivity {
                         botonError.setEnabled(true);
                     }
                     s = Double.parseDouble(getInput);
-                    resultado.setText("Grado: " + tamaño + "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r + "\ns= " + s);
+                    resultado.setText("Grado: " + (tamaño-1)
+                            + "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r + "\ns= " + s);
                 }
 
 

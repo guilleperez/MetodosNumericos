@@ -151,24 +151,20 @@
 
         </TableRow>
 
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/resultadoBr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/resultadoGS"
+                android:layout_width="200dp"
+                android:layout_height="240dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft=".5dp"
                 android:layout_marginRight=".5dp"
                 android:layout_weight="0.5"
                 android:textAlignment="center"
-                android:textSize="17sp"
-                android:maxLines = "30"
-                android:scrollbars = "vertical"
-                />
+                android:textSize="17sp" />
         </TableRow>
     </TableLayout>
 
