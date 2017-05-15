@@ -98,7 +98,7 @@ public class MetodoSeis extends AppCompatActivity {
                     if (x < tamaño) {
                         x++;
                         for (int i = ecuacion.size() - 1; i >= 0; i--){
-                           if (Double.parseDouble(ecuacion.get(i)) > 0)
+                           if (Double.parseDouble(ecuacion.get(i)) >= 0)
                             s += ("+ " + Double.parseDouble(ecuacion.get(i)) + "x" + i + " ");
                             else
                                 s+= (Double.parseDouble(ecuacion.get(i)) + "x" + i + " ");}

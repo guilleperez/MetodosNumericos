@@ -42,7 +42,7 @@
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
                 android:ems="10"
-                android:hint="Matriz"
+                android:hint="Ecuación"
                 android:inputType="numberSigned|numberDecimal"
                 android:textAlignment="center"
                 android:textColorLink="@android:color/holo_blue_dark"
@@ -79,17 +79,6 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <EditText
-                android:id="@+id/s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:ems="10"
-                android:hint="S"
-                android:inputType="numberSigned|numberDecimal"
-                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/r"
@@ -100,6 +89,18 @@
                 android:layout_weight="0.5"
                 android:ems="10"
                 android:hint="R"
+                android:inputType="numberSigned|numberDecimal"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:hint="S"
                 android:inputType="numberSigned|numberDecimal"
                 android:textAlignment="center" />
 
@@ -123,7 +124,7 @@
             android:layout_height="match_parent" >
 
             <Button
-                android:id="@+id/sButton"
+                android:id="@+id/rButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
@@ -132,7 +133,7 @@
                 android:text="Enter" />
 
             <Button
-                android:id="@+id/rButton"
+                android:id="@+id/sButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
