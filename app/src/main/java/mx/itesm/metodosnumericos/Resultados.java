@@ -38,4 +38,12 @@ public class Resultados extends AppCompatActivity {
             }
         });
     }
+
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), PrimerPantalla.class));
+        finish();
+
+    }
 }

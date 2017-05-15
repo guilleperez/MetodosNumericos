@@ -262,5 +262,12 @@ public class MetodoSeis extends AppCompatActivity {
         intent.putExtra("key", resultado);
         startActivity(intent);
     }
+
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), PrimerPantalla.class));
+        finish();
+
+    }
 }
 

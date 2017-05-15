@@ -92,7 +92,7 @@
             android:id="@+id/back"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@mipmap/back"
+            android:background="@drawable/back"
             android:layout_marginLeft="16dp"
             android:layout_alignTop="@+id/cramerBoton"
             android:layout_alignParentLeft="true"

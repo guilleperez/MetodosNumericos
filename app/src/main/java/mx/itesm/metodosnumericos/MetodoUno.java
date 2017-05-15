@@ -198,6 +198,13 @@ public class MetodoUno extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(), PrimerPantalla.class));
+        finish();
+
+    }
+
 }
 
 

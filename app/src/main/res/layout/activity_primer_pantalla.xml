@@ -6,107 +6,109 @@
     android:orientation="horizontal"
   >
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-   >
-
-    <Button
-        android:id="@+id/botonUno"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_column="1"
-        android:layout_marginTop="10dp"
-        android:layout_row="12"
-        android:layout_weight="1"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="CRAMER"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/botonDos"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="Gauss Seidel"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/botonUno"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_column="1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_row="12"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="CRAMER" />
 
-    <Button
-        android:id="@+id/botonTres"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="Gauss"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/botonDos"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Gauss Seidel" />
+
+        <Button
+            android:id="@+id/botonTres"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Gauss" />
 
 
-    <Button
-        android:id="@+id/botonCuatro"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="Determinante"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/botonCuatro"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Determinante" />
 
-    <Button
-        android:id="@+id/botonCinco"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="Gauss Jordan"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/botonCinco"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Gauss Jordan" />
 
-    <Button
-        android:id="@+id/botonSeis"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:backgroundTint="@android:color/darker_gray"
-        android:text="Bairstow"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        <Button
+            android:id="@+id/botonSeis"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@android:color/darker_gray"
+            android:text="Bairstow" />
 
-    <ImageButton
-        android:id="@+id/back"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="@mipmap/back"
-        android:layout_marginLeft="15dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginBottom="10dp"/>
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/back" />
 
-</LinearLayout>
+    </LinearLayout>
+
+
+
 
 </ScrollView>
 
