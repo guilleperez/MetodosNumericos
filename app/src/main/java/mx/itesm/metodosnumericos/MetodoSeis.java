@@ -22,12 +22,11 @@ public class MetodoSeis extends AppCompatActivity {
 
     private double r, s;
     private double error;
-    private int tamaño, basta, x=0;
+    private int tamaño, basta, x = 0;
     private ArrayList<String> ecuacion = new ArrayList<String>();
-    private EditText ecuacionTxt,txtR,txtS, errorTxt, tamañotxt;
+    private EditText ecuacionTxt, txtR, txtS, errorTxt, tamañotxt;
     private TextView resultado;
-    private Button botonEcuacion, calcular ,botonR, botonS, botonError, botonTamaño;
-    private ImageButton back;
+    private Button botonEcuacion, calcular, botonR, botonS, botonError, botonTamaño;
     String ec = "";
 
     @Override
@@ -36,8 +35,9 @@ public class MetodoSeis extends AppCompatActivity {
         //getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_metodo_seis);
 
+        ImageButton back = (ImageButton) findViewById(R.id.back);
         botonEcuacion = (Button) findViewById(R.id.EcButton);
-        calcular  = (Button)findViewById(R.id.bairstowButton);
+        calcular  = (Button)findViewById(R.id.bairstow);
         botonR = (Button)findViewById(R.id.rButton);
         botonError = (Button)findViewById(R.id.errButtonBr);
         botonS = (Button)findViewById(R.id.sButton);
@@ -55,21 +55,17 @@ public class MetodoSeis extends AppCompatActivity {
         resultado.setMovementMethod(new ScrollingMovementMethod());
 
 
-       /* if(botonR.isEnabled() && botonS.isEnabled() && botonError.isEnabled() && botonEcuacion.isEnabled() && botonTamaño.isEnabled()){
+        if(botonR.isEnabled() && botonS.isEnabled() && botonError.isEnabled() && botonEcuacion.isEnabled() && botonTamaño.isEnabled()){
             if (calcular.isEnabled()){
                 calcular.setEnabled(false);
             }
-        }*/
+        }
         botonR.setEnabled(false);
         botonEcuacion.setEnabled(false);
         botonError.setEnabled(false);
         botonS.setEnabled(false);
         calcular.setEnabled(false);
 
-
-
-        //Back
-        back = (ImageButton)findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,11 +150,11 @@ public class MetodoSeis extends AppCompatActivity {
                         botonError.setEnabled(false);
                         calcular.setEnabled(true);
                     }
-                    /*if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
+                    if(!botonTamaño.isEnabled() && !botonEcuacion.isEnabled() && !botonError.isEnabled() && !botonR.isEnabled() && !botonS.isEnabled()) {
                         if (!calcular.isEnabled()) {
                             calcular.setEnabled(true);
                         }
-                    }*/
+                    }
                     error = Double.parseDouble(getInput);
                 }
             }
@@ -179,7 +175,7 @@ public class MetodoSeis extends AppCompatActivity {
                         botonS.setEnabled(true);
                     }
                     r = Double.parseDouble(getInput);
-                    resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r);
+                    resultado.setText("Grado: " + tamaño + "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r);
                 }
 
 
@@ -201,7 +197,7 @@ public class MetodoSeis extends AppCompatActivity {
                         botonError.setEnabled(true);
                     }
                     s = Double.parseDouble(getInput);
-                    resultado.setText("Insertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r + "\ns= " + s);
+                    resultado.setText("Grado: " + tamaño + "\n\nInsertar: x" + x + "\n\nEcuación: \n" + ec + "\n\nr = " + r + "\ns= " + s);
                 }
 
 

@@ -22,57 +22,74 @@
 
             <EditText
                 android:id="@+id/Grado"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
                 android:ems="10"
-                android:hint="Grado"
+                android:hint="Tamaño"
                 android:inputType="number"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColorLink="@android:color/holo_blue_dark"
+                android:textSize="16sp" />
 
             <EditText
                 android:id="@+id/EcuacionBr"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
                 android:ems="10"
-                android:hint="Ecuación"
+                android:hint="Matriz"
                 android:inputType="numberSigned|numberDecimal"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColorLink="@android:color/holo_blue_dark"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="0.05">
-            >
+            android:layout_weight="0.05"
+            android:layout_height="match_parent" >
 
             <Button
                 android:id="@+id/bottonGrado"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"
+                android:text="Insertar"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/EcButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft=".05dp"
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
                 android:text="Insertar" />
 
-            <Button
-                android:id="@+id/EcButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:text="Insertar" />
         </TableRow>
+
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/s"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:hint="S"
+                android:inputType="numberSigned|numberDecimal"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/r"
@@ -82,19 +99,7 @@
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
                 android:ems="10"
-                android:hint="r"
-                android:inputType="numberSigned|numberDecimal"
-                android:textAlignment="center" />
-
-            <EditText
-                android:id="@+id/s"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:ems="10"
-                android:hint="s"
+                android:hint="R"
                 android:inputType="numberSigned|numberDecimal"
                 android:textAlignment="center" />
 
@@ -107,24 +112,15 @@
                 android:layout_weight="0.5"
                 android:ems="10"
                 android:hint="Error"
-                android:inputType="textPersonName|numberDecimal"
+                android:inputType="numberDecimal"
                 android:textAlignment="center" />
+
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight=".1">
-            >
-
-            <Button
-                android:id="@+id/rButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft=".05dp"
-                android:layout_marginRight=".05dp"
-                android:layout_weight="0.5"
-                android:text="Insertar" />
+            android:layout_weight="0.05"
+            android:layout_height="match_parent" >
 
             <Button
                 android:id="@+id/sButton"
@@ -133,7 +129,16 @@
                 android:layout_marginLeft=".05dp"
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
-                android:text="Insertar" />
+                android:text="Enter" />
+
+            <Button
+                android:id="@+id/rButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft=".05dp"
+                android:layout_marginRight=".05dp"
+                android:layout_weight="0.5"
+                android:text="Enter" />
 
             <Button
                 android:id="@+id/errButtonBr"
@@ -142,27 +147,29 @@
                 android:layout_marginLeft=".05dp"
                 android:layout_marginRight=".05dp"
                 android:layout_weight="0.5"
-                android:text="Insertar" />
+                android:text="Error" />
+
         </TableRow>
 
 
         <TableRow
-            android:layout_width="320dp"
-            android:layout_height="match_parent"
-            >
-                <TextView
-                    android:id="@+id/resultadoBr"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft=".5dp"
-                    android:layout_marginRight=".5dp"
-                    android:layout_weight="0.5"
-                    android:textAlignment="center"
-                    android:textSize="17sp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/resultadoBr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft=".5dp"
+                android:layout_marginRight=".5dp"
+                android:layout_weight="0.5"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:maxLines = "30"
+                android:scrollbars = "vertical"
+                />
         </TableRow>
-
-
     </TableLayout>
 
     <ImageButton
@@ -171,13 +178,13 @@
         android:layout_height="50dp"
         android:background="@drawable/back"
         android:layout_marginLeft="15dp"
-        android:layout_alignTop="@+id/bairstowButton"
+        android:layout_alignTop="@+id/bairstow"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="15dp" />
 
     <Button
-        android:id="@+id/bairstowButton"
+        android:id="@+id/bairstow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calcular"
@@ -185,6 +192,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="18dp"
-        android:layout_marginBottom="18dp"/>
+        android:layout_marginBottom="18dp" />
 </RelativeLayout>
 

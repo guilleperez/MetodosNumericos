@@ -51,11 +51,11 @@ public class MetodoDos extends AppCompatActivity {
         resultado = (TextView) findViewById(R.id.resultadoGS);
         resultado.setMovementMethod(new ScrollingMovementMethod());
 
-        /*if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
+        if(botonTamano.isEnabled() && botonDatos.isEnabled() && botonLista.isEnabled()){
             if (calcular.isEnabled()){
                 calcular.setEnabled(false);
             }
-        }*/
+        }
         botonDatos.setEnabled(false);
         botonLista.setEnabled(false);
         botonError.setEnabled(false);
